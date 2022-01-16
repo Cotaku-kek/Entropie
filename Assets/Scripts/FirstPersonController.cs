@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
-using Inventory;
 
 #pragma warning disable 618, 649
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -32,7 +31,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         //Inventory Reference
-        //public Inventory inventory;
+        [SerializeField] public Inventory inventory;
 
         private Camera m_Camera;
         private bool m_Jump;

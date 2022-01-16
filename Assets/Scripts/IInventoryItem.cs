@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public interface InventoryItem : MonoBehaviour
+public interface IInventoryItem
 {
     string Name { get; }
 
-    Sprite Image { ger; }
+    Sprite Image { get; }
 
     void OnPickup();
 
 }
 
-public class InventoryEventArgs : InventoryEventArgs
+public class InventoryEventArgs : EventArgs
 {
     public InventoryEventArgs(IInventoryItem item)
     {
-        item = item;
+        Item = item;
     }
 
     public IInventoryItem Item;
