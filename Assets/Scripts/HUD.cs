@@ -12,19 +12,18 @@ public class HUD : MonoBehaviour
         Inventory.ItemAdded += InventoryScript_ItemAdded;
     }
 
-    private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
+    public void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
-        Transform inventory = transform.Find("Inventory");
-        foreach(Transform slot in inventory)
+        Transform Inventory = transform.Find("Inventory");
+        foreach(Transform slot in Inventory)
         {
             Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
 
             if (!image.enabled)
-            {
+            {                
                 image.enabled = true;
                 image.sprite = e.Item.Image;
-                //Debug.Log("Added Item");
-
+                
                 break;
             }
         }

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour, IInventoryItem
 {
+    public Transform playerCaracter = null;
+
+    private bool isPickedUp = false;
+
     public string Name
     {
         get
@@ -22,18 +26,23 @@ public class Shotgun : MonoBehaviour, IInventoryItem
         }
     }
 
-    public void OnPickup()
+    public void OnPickup() 
     {
-        //TODO: Implement OnPickup Method
-        gameObject.SetActive(false);
+        isPickedUp = true;
+
+        gameObject.transform.position = new Vector3(playerCaracter.position.x, playerCaracter.position.y + 0.6f, playerCaracter.position.z + 0.8f);
+        gameObject.transform.rotation = new Quaternion(playerCaracter.rotation.x, playerCaracter.rotation.y, playerCaracter.rotation.z, playerCaracter.rotation.w);
+
+
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (isPickedUp)
         {
-            gameObject.SetActive(false);
-            Debug.Log("F");
+            gameObject.transform.position = new Vector3(playerCaracter.position.x, playerCaracter.position.y + 0.6f, playerCaracter.position.z + 0.8f);
+            gameObject.transform.rotation = new Quaternion(playerCaracter.rotation.x, playerCaracter.rotation.y, playerCaracter.rotation.z, playerCaracter.rotation.w);
         }
     }
+
 }

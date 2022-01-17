@@ -13,6 +13,7 @@ public interface IInventoryItem
 
 }
 
+
 public class InventoryEventArgs : EventArgs
 {
     public InventoryEventArgs(IInventoryItem item)

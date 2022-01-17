@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BloodFlask : MonoBehaviour, IInventoryItem
 {
+    public Transform playerCaracter = null;
+
+    private bool isPickedUp = false;
+
     public string Name
     {
         get
@@ -12,7 +16,7 @@ public class BloodFlask : MonoBehaviour, IInventoryItem
         }
     }
 
-    public Sprite _Image;
+    public Sprite _Image = null;
     public Sprite Image
     {
         get
@@ -23,7 +27,21 @@ public class BloodFlask : MonoBehaviour, IInventoryItem
 
     public void OnPickup()
     {
-        gameObject.SetActive(false);
+        isPickedUp = true;
+
+        gameObject.transform.position = new Vector3(playerCaracter.position.x, playerCaracter.position.y + 0.6f, playerCaracter.position.z + 0.8f);
+        gameObject.transform.rotation = new Quaternion(playerCaracter.rotation.x, playerCaracter.rotation.y, playerCaracter.rotation.z, playerCaracter.rotation.w);
+
+
+    }
+
+    void Update()
+    {
+        if (isPickedUp)
+        {
+            gameObject.transform.position = new Vector3(playerCaracter.position.x, playerCaracter.position.y + 0.6f, playerCaracter.position.z + 0.8f);
+            gameObject.transform.rotation = new Quaternion(playerCaracter.rotation.x, playerCaracter.rotation.y, playerCaracter.rotation.z, playerCaracter.rotation.w);
+        }
     }
 
 }
