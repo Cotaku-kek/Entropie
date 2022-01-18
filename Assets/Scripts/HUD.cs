@@ -45,19 +45,27 @@ public class HUD : MonoBehaviour
         }
     }
 
-    public void RemoveItem()
+    public void RemoveItem(int index)
     {
         Transform Inventory = transform.Find("Inventory");
+        int iterator = -1;
+        Image image = null;
         foreach (Transform slot in Inventory)
         {
-            Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
-
-            if (image.enabled)
+            iterator++;
+            if (index == iterator)
             {
-                image.enabled = false;
-                image.sprite = null;
+                image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
+            }
+            if (image != null)
+            {
+                if (image.enabled)
+                {
+                    image.enabled = false;
+                    image.sprite = null;
 
-                break;
+                    break;
+                }
             }
         }
     }
