@@ -45,8 +45,4 @@ public class Shotgun : MonoBehaviour, IInventoryItem
         }
     }
 
-    public void onUse()
-    {
- 
-    }
 }

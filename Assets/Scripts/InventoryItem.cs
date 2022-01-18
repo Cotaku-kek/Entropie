@@ -12,7 +12,11 @@ public interface IInventoryItem
     void OnPickup();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     void onUse();
+=======
+    public void onUse();
+>>>>>>> parent of 936ba95 (Added the onUsed function option)
 
 =======
 >>>>>>> parent of 4d374e6 (Added keybinding to inventory)

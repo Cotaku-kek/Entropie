@@ -44,8 +44,4 @@ public class BloodFlask : MonoBehaviour, IInventoryItem
         }
     }
 
-    public void onUse()
-    {
-       
-    }
 }
