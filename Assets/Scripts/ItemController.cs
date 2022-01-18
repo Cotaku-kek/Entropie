@@ -7,6 +7,8 @@ public class ItemController : MonoBehaviour {
     [SerializeField] private Inventory inventory;
     [SerializeField] private GameObject testPrefab;
     private int activeSlot;
+    GameObject ritualCircle;
+    [SerializeField] private GameObject monster;
 
     private void Update()
     {
@@ -30,15 +32,20 @@ public class ItemController : MonoBehaviour {
         {
             return;
         }
-        inventory.mItems.Remove(inventory.mItems[activeSlot]);
-        // TODO put into inventory and remove book/ weapon instances from player  via Destroy (gameObject)...
-        //var firstItem = inventory.mItems.First();
-        // inventory.mItems.Remove(firstItem);
-        // Vector3 myrotation = new Vector3 (90f, transform.rotation.y, transform.rotation.z);
-        Vector3 mytransform;
-        mytransform = transform.position;
-        mytransform.y -= 3.5f;
-        GameObject spawnedItem = Instantiate(testPrefab, transform.position + mytransform, transform.rotation=Quaternion.identity);
-        HUD.Instance.RemoveItem(activeSlot);
+        if (inventory.mItems[activeSlot].Name == "BloodFlask")
+        {
+            inventory.mItems.Remove(inventory.mItems[activeSlot]);
+            // TODO put into inventory and remove book/ weapon instances from player  via Destroy (gameObject)...
+            Vector3 mytransform = transform.position;
+            mytransform.y -= 3.5f;
+             ritualCircle = Instantiate(testPrefab, transform.position + mytransform, transform.rotation = Quaternion.identity);
+            HUD.Instance.RemoveItem(activeSlot);
+        }
+        if (inventory.mItems[activeSlot].Name== "Tome"&& Vector3.Distance(ritualCircle.transform.position, transform.position) < 3)
+        {
+            Debug.Log("The Tome was Sacrificed");
+            monster.GetComponent<StalkScriptLitchKing>().summon(ritualCircle.transform.position);
+            HUD.Instance.RemoveItem(activeSlot);
+        }
     }
 }
