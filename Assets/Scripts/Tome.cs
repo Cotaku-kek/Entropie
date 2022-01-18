@@ -65,4 +65,9 @@ public class Tome : MonoBehaviour, IInventoryItem
             gameObject.transform.rotation = new Quaternion(playerCaracter.rotation.x, playerCaracter.rotation.y, playerCaracter.rotation.z, playerCaracter.rotation.w);
         }
     }
+
+    public void onUse()
+    {
+        
+    }
 }

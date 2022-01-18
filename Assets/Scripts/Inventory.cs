@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     public List<IInventoryItem> mItems = new List<IInventoryItem>();
 
     public event EventHandler<InventoryEventArgs> ItemAdded;
+    private int activeSlot;
 
     public void AddItem(IInventoryItem item)
     {
@@ -29,6 +30,21 @@ public class Inventory : MonoBehaviour
                     ItemAdded(this, new InventoryEventArgs(item));
                 }
             }
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            activeSlot = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            activeSlot = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            mItems[activeSlot].onUse();
         }
     }
 }
