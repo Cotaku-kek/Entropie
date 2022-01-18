@@ -41,11 +41,15 @@ public class ItemController : MonoBehaviour {
              ritualCircle = Instantiate(testPrefab, transform.position + mytransform, transform.rotation = Quaternion.identity);
             HUD.Instance.RemoveItem(activeSlot);
         }
-        if (inventory.mItems[activeSlot].Name== "Tome"&& Vector3.Distance(ritualCircle.transform.position, transform.position) < 3)
+        else if (inventory.mItems[activeSlot].Name== "Tome"&& Vector3.Distance(ritualCircle.transform.position, transform.position) < 3)
         {
             Debug.Log("The Tome was Sacrificed");
             monster.GetComponent<StalkScriptLitchKing>().summon(ritualCircle.transform.position);
             HUD.Instance.RemoveItem(activeSlot);
+        }
+        else if(monster.GetComponent<StalkScriptLitchKing>().isbound&&inventory.mItems[activeSlot].Name== "Shotgun")
+        {
+            monster.SetActive(false);
         }
     }
 }

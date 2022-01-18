@@ -9,7 +9,7 @@ public class StalkScriptLitchKing : MonoBehaviour
     public Transform Destination = null;
     private NavMeshAgent ThisAgent = null;
     private Vector3 BindingNode;
-    private bool isbound;
+    public bool isbound;
 
     void Awake()
     {
@@ -36,9 +36,16 @@ public class StalkScriptLitchKing : MonoBehaviour
     }
    public void summon(Vector3 circle)
     {
-        Debug.Log("Summoning Litch");
-        transform.position = circle;
-        BindingNode = circle;
-        isbound = true;
+        if (!isbound)
+        {
+            Debug.Log("Summoning Litch");
+            transform.position = circle;
+            BindingNode = circle;
+            isbound = true;
+        }
+        else
+        {
+            enabled = false;
+        }
     }
 }
