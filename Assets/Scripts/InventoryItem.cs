@@ -11,8 +11,11 @@ public interface IInventoryItem
 
     void OnPickup();
 
+<<<<<<< HEAD
     void onUse();
 
+=======
+>>>>>>> parent of 4d374e6 (Added keybinding to inventory)
 }
 
 
