@@ -6,6 +6,22 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     public Inventory Inventory;
+    public static HUD Instance
+    {
+        get; private set;
+    }
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        } else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -28,4 +44,22 @@ public class HUD : MonoBehaviour
             }
         }
     }
+
+    public void RemoveItem()
+    {
+        Transform Inventory = transform.Find("Inventory");
+        foreach (Transform slot in Inventory)
+        {
+            Image image = slot.GetChild(0).GetChild(0).GetComponent<Image>();
+
+            if (image.enabled)
+            {
+                image.enabled = false;
+                image.sprite = null;
+
+                break;
+            }
+        }
+    }
+
 }
