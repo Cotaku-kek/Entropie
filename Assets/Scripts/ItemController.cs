@@ -33,9 +33,10 @@ public class ItemController : MonoBehaviour {
         inventory.mItems.Remove(inventory.mItems[activeSlot]);
         // TODO put into inventory and remove book/ weapon instances from player  via Destroy (gameObject)...
         //var firstItem = inventory.mItems.First();
-       // inventory.mItems.Remove(firstItem);
-       // Vector3 myrotation = new Vector3 (90f, transform.rotation.y, transform.rotation.z);
-        GameObject spawnedItem = Instantiate(testPrefab, transform.position + transform.forward, transform.rotation);
+        // inventory.mItems.Remove(firstItem);
+        // Vector3 myrotation = new Vector3 (90f, transform.rotation.y, transform.rotation.z);
+       
+        GameObject spawnedItem = Instantiate(testPrefab, transform.position + transform.forward, transform.rotation=Quaternion.identity);
         HUD.Instance.RemoveItem(activeSlot);
     }
 }
