@@ -35,8 +35,10 @@ public class ItemController : MonoBehaviour {
         //var firstItem = inventory.mItems.First();
         // inventory.mItems.Remove(firstItem);
         // Vector3 myrotation = new Vector3 (90f, transform.rotation.y, transform.rotation.z);
-       
-        GameObject spawnedItem = Instantiate(testPrefab, transform.position + transform.forward, transform.rotation=Quaternion.identity);
+        Vector3 mytransform;
+        mytransform = transform.position;
+        mytransform.y -= 3.5f;
+        GameObject spawnedItem = Instantiate(testPrefab, transform.position + mytransform, transform.rotation=Quaternion.identity);
         HUD.Instance.RemoveItem(activeSlot);
     }
 }
