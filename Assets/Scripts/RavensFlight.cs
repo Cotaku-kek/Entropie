@@ -21,8 +21,12 @@ public class RavensFlight : MonoBehaviour
         if (isFrightened)
         {
             Vector3 a = transform.position;
-            a.y += 0.1f;
+            a.y += 0.03f;
             transform.position = a;
+            if (a.y >= 100)
+            {
+                this.enabled = false;
+            }
         }
         if (Vector3.Distance(transform.position, player.transform.position)<sightRange) 
         {

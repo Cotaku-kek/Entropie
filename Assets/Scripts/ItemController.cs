@@ -43,7 +43,7 @@ public class ItemController : MonoBehaviour {
         }
         else if (inventory.mItems[activeSlot].Name== "Tome"&& Vector3.Distance(ritualCircle.transform.position, transform.position) < 3)
         {
-            Debug.Log("The Tome was Sacrificed");
+       //     Debug.Log("The Tome was Sacrificed");
             monster.GetComponent<StalkScriptLitchKing>().summon(ritualCircle.transform.position);
             HUD.Instance.RemoveItem(activeSlot);
         }
