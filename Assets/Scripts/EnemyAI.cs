@@ -11,6 +11,9 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    //public bool isBound;
+    //public Vector3 bindingNode;
+
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -25,8 +28,14 @@ public class EnemyAI : MonoBehaviour
         //Check for sight range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-        if (!playerInSightRange) Patroling();
-        if (playerInSightRange) Chasing();
+        if (!playerInSightRange) {
+            Patroling();
+        }
+
+        if (playerInSightRange) {
+            Chasing();
+        }
+
     }
     
     private void Awake()
@@ -37,27 +46,29 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
-        Debug.Log("we are in the patrouling mehtod");
-        if (!walkPointSet) SearchWalkPoint();
+        Debug.Log("we are in the patroling method");
+        if (!walkPointSet) {
+            SearchWalkPoint();
+        }
 
-        if (walkPointSet)
-        {
-            //agent.SetDestination(walkPoint);
-            Debug.Log("set walk point to " + walkPoint.ToString());
-
+        if (walkPointSet) {
+            agent.SetDestination(walkPoint);
+            Debug.Log("set walkpoint to " + walkPoint.ToString());
         }
 
         //Calculate distance to walkpoint
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (distanceToWalkPoint.magnitude < 1f) {
             walkPointSet = false;
+            Debug.Log("walkpoint reached");
+        }
     }
 
     private void SearchWalkPoint()
     {
-        Debug.Log("searchng fot new walk point");
+        Debug.Log("searching for new walkpoint");
 
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
@@ -65,19 +76,44 @@ public class EnemyAI : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
+        Debug.Log("found new random walkpoint");
+
         //Check if the walkpoint is on the ground
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
             walkPointSet = true;
-            Debug.Log("wak point found at position " + walkPoint.ToString());
-            agent.SetDestination(walkPoint);
+            Debug.Log("walkpoint found at position " + walkPoint.ToString());
+            agent.SetDestination(walkPoint);    
+        }
 
+        else
+        {
+            Debug.Log("help, Im stuck!");
         }
     }
 
     private void Chasing()
     {
         agent.SetDestination(player.position);
+        Debug.Log("player is the destination");
     }
+
+    /*
+    public void Summon(Vector3 circle)
+    {
+        if (!isBound)
+        {
+            Debug.Log("Summoning Litch");
+            transform.position = circle;
+            bindingNode = circle;
+            isBound = true;
+        }
+
+        else
+        {
+            enabled = false;
+        }
+    }
+    */
 
 }
