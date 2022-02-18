@@ -10,19 +10,31 @@ public class StalkScriptLitchKing : MonoBehaviour
     private NavMeshAgent ThisAgent = null;
     private Vector3 BindingNode;
     public bool isbound;
-
+    private float elapsed = 0.0f;
     void Awake()
     {
         ThisAgent = GetComponent<NavMeshAgent>();
+        ThisAgent.SetDestination(Destination.position);
     }
 
     void Update()
     {
+        elapsed += Time.deltaTime;
+        if (elapsed > 1.0f)
+        {
+            elapsed -= 1.0f;
+            ThisAgent.SetDestination(Destination.position);
+
+        }
         if (isbound)
         {
-            if (Vector3.Distance(BindingNode, transform.position) < 5)
+            if (Vector3.Distance(BindingNode, transform.position) < 30)
             {
-                ThisAgent.SetDestination(Destination.position);
+                if (!ThisAgent.pathPending)
+                {
+                    ThisAgent.SetDestination(Destination.position);
+
+                }
             }
             else
             {
@@ -31,7 +43,11 @@ public class StalkScriptLitchKing : MonoBehaviour
         }
         else
         {
-            ThisAgent.SetDestination(Destination.position);
+            if (!ThisAgent.pathPending)
+            {
+               // ThisAgent.SetDestination(Destination.position);
+
+            }
         }
     }
    public void summon(Vector3 circle)
