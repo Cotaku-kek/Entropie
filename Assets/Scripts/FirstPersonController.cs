@@ -29,9 +29,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
+        [SerializeField] private UIInventoryScript uiInventory;
+
 
         //Inventory Reference
-        public Inventory inventory;
+        //public Inventory inventory;
+        private PlayerInventory inventory;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -60,6 +63,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
             m_MouseLook.Init(transform, m_Camera.transform);
+
+            //Inventory and Items here
+            inventory = new PlayerInventory();
+            uiInventory.SetInventory(inventory);
+            ItemsInWorld.SpawnItemsInWold(new Vector3(-1, 0, 1), new Item { itemType = Item.ItemType.Tome });
         }
 
 
@@ -248,12 +256,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             //Item Collection [Inventory Testing]
-            IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+            /*IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
             if (item != null)
             {
                 inventory.AddItem(item);
                 //Debug.Log("Item_Collected");
-            }
+            }*/
 
 
             Rigidbody body = hit.collider.attachedRigidbody;
