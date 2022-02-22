@@ -15,16 +15,16 @@ public class ItemsInWorld : MonoBehaviour
     }
 
     private Item aItem;
-    private MeshFilter meshFilter;
+ 
 
     private void Awake()
     {
-        meshFilter = GetComponent<MeshFilter>();
+       
     }
 
     public void SetItem(Item pItem)
     {
         this.aItem = pItem;
-        meshFilter.mesh = pItem.GetModel();
+        this.aItem.Init();
     }
 }

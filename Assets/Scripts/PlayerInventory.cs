@@ -2,19 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory
+public class PlayerInventory : MonoBehaviour
 {
-    private List<Item> itemList;
-    public PlayerInventory()
+    [SerializeField] private Item[] slot;
+    int Slotcount = 2;
+  
+    private void Awake()
     {
-        itemList = new List<Item>();
+        Initialize();
     }
-    public void AddItem(Item pItem)
+
+    private void Update()
     {
-        itemList.Add(pItem);
+
     }
-    public List<Item> GetItemList()
+    private bool isSlotFree()
     {
-        return itemList;
+        bool isFree = false;
+        for(int i=0; i< Slotcount; i++)
+        {
+            if (slot[i] == null) { isFree = true; }
+        }
+        return isFree;
+    }
+    public bool AddItem(Item newItem)
+    {
+        if (isSlotFree())
+        {
+            for (int i = 0; i < Slotcount; i++)
+            {
+                if (slot[i] == null) 
+                {
+                    slot[i] = newItem;
+                    break;
+                }
+            }
+            return true;
+        }
+        else { return false; }
+    }
+    public void RemoveItem(int index)
+    {
+        slot[index] = null;
+    }
+    public Item GetItem(int index)
+    {
+        return slot[index];
+    }
+
+    private void Initialize()
+    {
+        slot = new Item[Slotcount];
     }
 }

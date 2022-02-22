@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item 
 {
+    public GameObject ItemInstance;
     public enum ItemType
     {
         BloodFlask,
@@ -23,7 +24,17 @@ public class Item
     }
     public ItemType itemType;
 
-    public Mesh GetModel()
+    public void Init()
+    {
+        ItemInstance = GetModel();
+    }
+
+    public void Setposition(Vector3 pPos)
+    {
+        ItemInstance.transform.position = pPos;
+    }
+
+    public GameObject GetModel()
     {
         switch (itemType)
         {

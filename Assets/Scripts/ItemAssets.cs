@@ -14,18 +14,18 @@ public static ItemAssets Instance { get; private set; }
 
     public Transform pfItemsInWorld;
 
-    public Mesh bloodFlask;
-    public Mesh tome;
-    public Mesh shotgun;
-    public Mesh carrot;
-    public Mesh candles;
-    public Mesh silver;
-    public Mesh ammunition;
-    public Mesh acid;
-    public Mesh bells;
-    public Mesh holyWater;
-    public Mesh crucifix;
-    public Mesh jackInTheBox;
-    public Mesh garlic;
-    public Mesh stake;
+    public GameObject bloodFlask;
+    public GameObject tome;
+    public GameObject shotgun;
+    public GameObject carrot;
+    public GameObject candles;
+    public GameObject silver;
+    public GameObject ammunition;
+    public GameObject acid;
+    public GameObject bells;
+    public GameObject holyWater;
+    public GameObject crucifix;
+    public GameObject jackInTheBox;
+    public GameObject garlic;
+    public GameObject stake;
 }

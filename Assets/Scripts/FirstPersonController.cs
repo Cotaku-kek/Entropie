@@ -29,7 +29,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
-        [SerializeField] private UIInventoryScript uiInventory;
+       // [SerializeField] private UIInventoryScript uiInventory;
 
 
         //Inventory Reference
@@ -66,7 +66,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             //Inventory and Items here
             inventory = new PlayerInventory();
-            uiInventory.SetInventory(inventory);
+           // uiInventory.SetInventory(inventory);
             ItemsInWorld.SpawnItemsInWold(new Vector3(-1, 0, 1), new Item { itemType = Item.ItemType.Tome });
         }
 
