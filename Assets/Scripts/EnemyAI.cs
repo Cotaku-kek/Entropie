@@ -9,9 +9,7 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
 
-    //public bool isBound;
-    //public Vector3 bindingNode;
-    public Vector3 walkPoint;
+    public Vector3 walkPoint;    
     bool walkPointSet;
     public float walkPointRange;
 
@@ -40,31 +38,6 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Patroling()
-    {
-        Debug.Log("we are in the patroling method");
-
-          if (walkPointSet) {
-            agent.SetDestination(walkPoint);
-            Debug.Log("set walkpoint to " + walkPoint.ToString());
-        }
-
-        if (!walkPointSet) {
-            SearchWalkPoint();
-        }
-
-        //Calculate distance to walkpoint
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f) 
-        {
-            walkPointSet = true;
-            Debug.Log("walkpoint reached");
-        }
-
-    }
-
     private void SearchWalkPoint()
     {
         Debug.Log("searching for new walkpoint");
@@ -81,13 +54,31 @@ public class EnemyAI : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
             walkPointSet = true;
-            Debug.Log("walkpoint found at position " + walkPoint.ToString());
-            agent.SetDestination(walkPoint);    
+            Debug.Log("walkpoint found at position " + walkPoint.ToString());  
+        }
+    }
+
+    private void Patroling()
+    {
+        Debug.Log("we are in the patroling method");
+
+        if (!walkPointSet) {
+            SearchWalkPoint();
         }
 
-        else
+          if (walkPointSet) {
+            agent.SetDestination(walkPoint);
+            Debug.Log("set walkpoint to " + walkPoint.ToString());
+        }
+
+        //Calculate distance to walkpoint
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        //Walkpoint reached
+        if (distanceToWalkPoint.magnitude < 1f) 
         {
-            Debug.Log("help, Im stuck!");
+            walkPointSet = false;
+            Debug.Log("walkpoint reached");
         }
 
     }
@@ -97,23 +88,5 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(player.position);
         Debug.Log("player is the destination");
     }
-
-    /*
-    public void Summon(Vector3 circle)
-    {
-        if (!isBound)
-        {
-            Debug.Log("Summoning Litch");
-            transform.position = circle;
-            bindingNode = circle;
-            isBound = true;
-        }
-
-        else
-        {
-            enabled = false;
-        }
-    }
-    */
 
 }
