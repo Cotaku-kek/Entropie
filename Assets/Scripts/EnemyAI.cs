@@ -6,15 +6,11 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
-
     public Transform player;
-
     public LayerMask whatIsGround, whatIsPlayer;
 
     //public bool isBound;
     //public Vector3 bindingNode;
-
-    //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
@@ -47,23 +43,26 @@ public class EnemyAI : MonoBehaviour
     private void Patroling()
     {
         Debug.Log("we are in the patroling method");
-        if (!walkPointSet) {
-            SearchWalkPoint();
-        }
 
-        if (walkPointSet) {
+          if (walkPointSet) {
             agent.SetDestination(walkPoint);
             Debug.Log("set walkpoint to " + walkPoint.ToString());
+        }
+
+        if (!walkPointSet) {
+            SearchWalkPoint();
         }
 
         //Calculate distance to walkpoint
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f) {
-            walkPointSet = false;
+        if (distanceToWalkPoint.magnitude < 1f) 
+        {
+            walkPointSet = true;
             Debug.Log("walkpoint reached");
         }
+
     }
 
     private void SearchWalkPoint()
@@ -90,6 +89,7 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("help, Im stuck!");
         }
+
     }
 
     private void Chasing()
