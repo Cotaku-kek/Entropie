@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
 
+    private Vector3 startingPosition;
     public Vector3 walkPoint;    
     bool walkPointSet;
     public float walkPointRange;
@@ -16,6 +17,11 @@ public class EnemyAI : MonoBehaviour
     //States
     public float sightRange;
     public bool playerInSightRange;
+
+    private void Start()
+    {
+        startingPosition = transform.position;
+    }
 
     private void Update()
     {
@@ -51,11 +57,13 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("found new random walkpoint");
 
         //Check if the walkpoint is on the ground
+        /*
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
             walkPointSet = true;
             Debug.Log("walkpoint found at position " + walkPoint.ToString());  
         }
+        */
     }
 
     private void Patroling()
