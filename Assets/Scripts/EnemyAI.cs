@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
+    private Coroutine patrolingRoutine;
 
     private Vector3 startingPosition;
     public Vector3 walkPoint;    
@@ -17,25 +18,24 @@ public class EnemyAI : MonoBehaviour
     //States
     public float sightRange;
     public bool playerInSightRange;
+    private bool isChasing = false;
 
-    private void Start()
-    {
+    private void Start() {
         startingPosition = transform.position;
+        Debug.Log(startingPosition);
+        //Here we start a new coroutine. This will start a new little program, that will run "indipendently" from the rest of the code.
+        FindDestinationAndWalkThere();
     }
 
-    private void Update()
-    {
+    private void Update() {
         //Check for sight range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-        if (!playerInSightRange) {
-            Patroling();
+        if (playerInSightRange && !isChasing) {
+            StopCoroutine(patrolingRoutine);
+            StartCoroutine(ChasingRoutine());
+            isChasing = true;
         }
-
-        if (playerInSightRange) {
-            Chasing();
-        }
-
     }
     
     private void Awake()
@@ -44,57 +44,52 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void SearchWalkPoint()
-    {
-        Debug.Log("searching for new walkpoint");
-
-        //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        Debug.Log("found new random walkpoint");
-
-        //Check if the walkpoint is on the ground
-        /*
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-        {
-            walkPointSet = true;
-            Debug.Log("walkpoint found at position " + walkPoint.ToString());  
-        }
-        */
+    private void FindDestinationAndWalkThere() {
+        Vector3 randomDirection = Random.insideUnitSphere * walkPointRange;
+        Vector3 samplePoint = startingPosition + randomDirection;
+        
+        NavMeshHit hit;
+        NavMesh.SamplePosition(samplePoint, out hit, walkPointRange, whatIsGround);
+        agent.SetDestination(hit.position);
+        patrolingRoutine = StartCoroutine(PatrolingRoutine());
     }
 
-    private void Patroling()
-    {
-        Debug.Log("we are in the patroling method");
-
-        if (!walkPointSet) {
-            SearchWalkPoint();
-        }
-
-          if (walkPointSet) {
-            agent.SetDestination(walkPoint);
-            Debug.Log("set walkpoint to " + walkPoint.ToString());
-        }
-
-        //Calculate distance to walkpoint
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f) 
-        {
-            walkPointSet = false;
-            Debug.Log("walkpoint reached");
-        }
-
+    //IEnumerator is the type that a coroutine has to have.
+    private IEnumerator PatrolingRoutine() {
+        do {
+            yield return new WaitForEndOfFrame();
+        } while (!IsDestinationReached());
+        
+        //We reached our destination. Now we find a new destination and walk there.
+        FindDestinationAndWalkThere();
     }
 
-    private void Chasing()
-    {
-        agent.SetDestination(player.position);
-        Debug.Log("player is the destination");
+    private IEnumerator ChasingRoutine() {
+        while(Physics.CheckSphere(transform.position, sightRange, whatIsPlayer)) {
+            SetDestinationToPlayerPosition();
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        FindDestinationAndWalkThere();
+        isChasing = false;
+    }
+    private bool IsDestinationReached() {
+        const float THRESHOLD = 1.5f;
+        float distance = Vector3.Distance(agent.destination, transform.position);
+        
+        return distance < THRESHOLD;
+    }
+
+    private void SetDestinationToPlayerPosition() {
+        Vector3 samplePoint = player.position;
+        
+        //NavMeshHit hit;
+        NavMeshPath path = new NavMeshPath();
+        
+        //NavMesh.SamplePosition(samplePoint, out hit, float.MaxValue, whatIsGround);
+        Debug.Log(agent.CalculatePath(player.position, path));
+        agent.ResetPath();
+        agent.SetPath(path);
     }
 
 }
