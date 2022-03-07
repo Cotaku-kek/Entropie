@@ -5,14 +5,8 @@ using UnityEngine;
 public class ItemAssets : MonoBehaviour
 {
 //singleton
+//DO UNDER NO CIRCUMSTANCES CHANGE ANY OF THIS, IT SHOULD BE FINISHED AND IS IMPORTANT
 public static ItemAssets Instance { get; private set; }
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    public Transform pfItemsInWorld;
 
     public GameObject bloodFlask;
     public GameObject tome;
@@ -28,4 +22,12 @@ public static ItemAssets Instance { get; private set; }
     public GameObject jackInTheBox;
     public GameObject garlic;
     public GameObject stake;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    public Transform pfItemsInWorld;
+
+
 }

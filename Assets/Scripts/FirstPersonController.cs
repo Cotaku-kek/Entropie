@@ -67,7 +67,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //Inventory and Items here
             inventory = new PlayerInventory();
            // uiInventory.SetInventory(inventory);
-            ItemsInWorld.SpawnItemsInWold(new Vector3(-1, 0, 1), new Item { itemType = Item.ItemType.Tome });
+
         }
 
 

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField] private Item[] slot;
+
+    public Item.ItemType[] slot;
     int Slotcount = 2;
+    int ActiveSlot = 0;
   
     private void Awake()
     {
@@ -21,7 +23,7 @@ public class PlayerInventory : MonoBehaviour
         bool isFree = false;
         for(int i=0; i< Slotcount; i++)
         {
-            if (slot[i] == null) { isFree = true; }
+            if (slot[i] == Item.ItemType.empty) { isFree = true; }
         }
         return isFree;
     }
@@ -31,9 +33,9 @@ public class PlayerInventory : MonoBehaviour
         {
             for (int i = 0; i < Slotcount; i++)
             {
-                if (slot[i] == null) 
+                if (slot[i] == Item.ItemType.empty) 
                 {
-                    slot[i] = newItem;
+                    slot[i] = newItem.itemType;
                     break;
                 }
             }
@@ -41,17 +43,55 @@ public class PlayerInventory : MonoBehaviour
         }
         else { return false; }
     }
-    public void RemoveItem(int index)
+    public void RemoveItem()
     {
-        slot[index] = null;
+        slot[ActiveSlot] = Item.ItemType.empty;
     }
-    public Item GetItem(int index)
+    public Item.ItemType GetItem(int index)
     {
         return slot[index];
     }
 
     private void Initialize()
     {
-        slot = new Item[Slotcount];
+        slot = new Item.ItemType[Slotcount];
+    }
+    public void UseItem()
+    {
+        if (slot[ActiveSlot] != Item.ItemType.empty)
+        {
+            switch (slot[ActiveSlot])
+            {
+                case Item.ItemType.BloodFlask:
+                    break;
+                case Item.ItemType.Tome:
+                    break;
+                case Item.ItemType.Shotgun:
+                    break;
+                case Item.ItemType.Carrot:
+                    break;
+                case Item.ItemType.Candles:
+                    break;
+                case Item.ItemType.Silver:
+                    break;
+                case Item.ItemType.Ammunition:
+                    break;
+                case Item.ItemType.Acid:
+                    break;
+                case Item.ItemType.Bells:
+                    break;
+                case Item.ItemType.HolyWater:
+                    break;
+                case Item.ItemType.Crucifix:
+                    break;
+                case Item.ItemType.JackInTheBox:
+                    break;
+                case Item.ItemType.Garlic:
+                    break;
+                case Item.ItemType.Stake:
+                    break;
+                default: break;
+            }
+        }
     }
 }
