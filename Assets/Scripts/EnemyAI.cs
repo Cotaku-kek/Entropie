@@ -64,6 +64,14 @@ public class EnemyAI : MonoBehaviour
         FindDestinationAndWalkThere();
     }
 
+//Need a StalkingRoutine. Replace ChasingRoutine to HuntingRoutine.
+    private IEnumerable StalkingRoutine() {
+        while(Physics.CheckSphere(transform.position, sightRange, whatIsPlayer)) {
+            SetDestinationToPlayerPosition(); //Destination is player +- position? Enemy has to be near player.
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
     private IEnumerator ChasingRoutine() {
         while(Physics.CheckSphere(transform.position, sightRange, whatIsPlayer)) {
             SetDestinationToPlayerPosition();

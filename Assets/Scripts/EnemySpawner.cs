@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public virtual void Start()
     {
         int randomIndex = Random.Range(0, myObjects.Length);
-        Vector3 randomSpawnPos = new Vector3(Random.Range(-5, -10), 3, Random.Range(1, 7));
+        Vector3 randomSpawnPos = new Vector3(Random.Range(-5, -10), 80, Random.Range(1, 7));
 
         Instantiate(myObjects[UnityEngine.Random.Range(0, myObjects.Length - 1)]);
         Debug.Log("Random enemy spawned");
