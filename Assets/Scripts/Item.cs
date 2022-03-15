@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item 
+public class Item : MonoBehaviour
 {
+    [SerializeField] GameObject Player;
     public enum ItemType
     {
         BloodFlask,
         Tome,
         Shotgun,
-        Carrot,
-        Candles,
-        Silver,
+        VampireCircleComp,
+        Cross,
+        Stake,
         Ammunition,
         Acid,
-        Bells,
-        HolyWater,
-        Crucifix,
-        JackInTheBox,
-        Garlic,
-        Stake,
+        Silver,
+        Candle,
+        Carrot,
+        Bell,
+        FoolCrComp,
+        Box,
         empty,
     }
 
@@ -29,10 +30,21 @@ public class Item
     {
         return itemType;
     }
-
+    public void SetisActive(bool GonnaBeActive)
+    {
+        
+    }
     public void DoItemAction()
     {
 
     }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            print("Item Collision");
+            if (collider.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().AddItem(this)) { Debug.Log("Reeeeee, Wir sind weiter gekommen!"); }
 
+        }
+    }
 }

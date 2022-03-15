@@ -65,7 +65,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MouseLook.Init(transform, m_Camera.transform);
 
             //Inventory and Items here
-            inventory = new PlayerInventory();
+
            // uiInventory.SetInventory(inventory);
 
         }
@@ -252,17 +252,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MouseLook.LookRotation(transform, m_Camera.transform);
         }
 
-
+        public bool AddItem(Item Collided)
+        {
+            Debug.Log("PlayerAddItem");
+            if (this.GetComponent<PlayerInventory>().AddItem(Collided.itemType))
+            {
+                return true;
+            }
+            else 
+            { 
+                return false; 
+            }
+        }
+       /* private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.GetComponent<Item>())
+            {
+                Debug.Log("Collision");
+                if (inventory.AddItem(other.gameObject.GetComponent<Item>().itemType))
+                {
+                    Destroy(other.gameObject);
+                }
+            }
+        }*/
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            //Item Collection [Inventory Testing]
-            /*IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-            if (item != null)
-            {
-                inventory.AddItem(item);
-                //Debug.Log("Item_Collected");
-            }*/
-
 
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it

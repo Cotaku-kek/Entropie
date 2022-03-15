@@ -9,7 +9,7 @@ public class ItemsInWorld : MonoBehaviour
         public bool IsFree;
         public Vector3 SpawnPosition;
     }
-   private  Spawnplace[] SpawnerPlace;
+    private Spawnplace[] SpawnerPlace;
 
     [SerializeField] GameObject BloodFlask;
     [SerializeField] GameObject Tome;
@@ -71,9 +71,94 @@ public class ItemsInWorld : MonoBehaviour
         int choice = Random.Range(0, 15);
         while (SpawnerPlace[choice].IsFree == false)
         {
-             choice = Random.Range(0, 15);
+            choice = Random.Range(0, 15);
         }
         SpawnerPlace[choice].IsFree = false;
         return SpawnerPlace[choice].SpawnPosition;
+    }
+    public void UseItem(Item.ItemType itemType)
+    {
+        switch (itemType)
+        {
+            case Item.ItemType.BloodFlask:
+                BloodFlask.GetComponent<BloodFlaskSccript>().DoItemAction();
+                break;
+            case Item.ItemType.Tome:
+                break;
+            case Item.ItemType.Shotgun:
+                break;
+            case Item.ItemType.Carrot:
+                break;
+            case Item.ItemType.Candle:
+                break;
+            case Item.ItemType.Silver:
+                break;
+            case Item.ItemType.Ammunition:
+                break;
+            case Item.ItemType.Acid:
+                break;
+            case Item.ItemType.Bell:
+                break;
+            case Item.ItemType.VampireCircleComp:
+                break;
+            case Item.ItemType.Cross:
+                break;
+            case Item.ItemType.Box:
+                break;
+            case Item.ItemType.FoolCrComp:
+                break;
+            case Item.ItemType.Stake:
+                break;
+            default: break;
+        }
+    }
+    public void SetActivity(Item.ItemType itemType, bool isActive)
+    {
+        switch (itemType)
+        {
+            case Item.ItemType.BloodFlask:
+                BloodFlask.SetActive(isActive);
+                break;
+            case Item.ItemType.Tome:
+                Tome.SetActive(isActive);
+                break;
+            case Item.ItemType.Shotgun:
+                Shotgun.SetActive(isActive);
+                break;
+            case Item.ItemType.Carrot:
+                Carrot.SetActive(isActive);
+                break;
+            case Item.ItemType.Candle:
+                Candle.SetActive(isActive);
+                break;
+            case Item.ItemType.Silver:
+                Silver.SetActive(isActive);
+                break;
+            case Item.ItemType.Ammunition:
+                Ammunition.SetActive(isActive);
+                break;
+            case Item.ItemType.Acid:
+                Acid.SetActive(isActive);
+                break;
+            case Item.ItemType.Bell:
+                Bell.SetActive(isActive);
+                break;
+            case Item.ItemType.VampireCircleComp:
+                VampCircComp.SetActive(isActive);
+                break;
+            case Item.ItemType.Cross:
+                Cross.SetActive(isActive);
+                break;
+            case Item.ItemType.Box:
+                Box.SetActive(isActive);
+                break;
+            case Item.ItemType.FoolCrComp:
+                FoolCircComp.SetActive(isActive);
+                break;
+            case Item.ItemType.Stake:
+                Stake.SetActive(isActive);
+                break;
+            default: break;
+        }
     }
 }

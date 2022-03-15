@@ -25,7 +25,7 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        Inventory.ItemAdded += InventoryScript_ItemAdded;
+        //Inventory.ItemAdded += InventoryScript_ItemAdded;
     }
 
     public void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
