@@ -9,7 +9,7 @@ public class Tome : MonoBehaviour, IInventoryItem
     public Transform playerCaracter = null;
 
     private bool isPickedUp = false;
-    private bool inHand = false;
+    //private bool inHand = false;
 
     public string Name
     {

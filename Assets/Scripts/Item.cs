@@ -43,7 +43,7 @@ public class Item : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             print("Item Collision");
-            if (collider.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().AddItem(this)) { Debug.Log("Reeeeee, Wir sind weiter gekommen!"); }
+            if (collider.GetComponent<PlayerInventory>().AddItem(this)) { Debug.Log("Reeeeee, Wir sind weiter gekommen!"); }
 
         }
     }

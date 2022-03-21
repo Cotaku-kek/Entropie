@@ -34,7 +34,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         //Inventory Reference
         //public Inventory inventory;
-        private PlayerInventory inventory;
+ 
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -252,18 +252,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MouseLook.LookRotation(transform, m_Camera.transform);
         }
 
-        public bool AddItem(Item Collided)
+       /* public bool AddItem(Item Collided)
         {
-            Debug.Log("PlayerAddItem");
-            if (this.GetComponent<PlayerInventory>().AddItem(Collided.itemType))
-            {
-                return true;
-            }
-            else 
-            { 
-                return false; 
-            }
-        }
+            Debug.Log(Collided.GetComponentInParent<Item>().itemType);
+            if (this.GetComponent<PlayerInventory>().AddItem(Collided))
+             {
+                 return true;
+             }
+             else 
+             { 
+                 return false; 
+             }
+   
+        }*/
        /* private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.GetComponent<Item>())

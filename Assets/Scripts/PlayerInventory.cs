@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] GameObject FoolRitualCircle;
     public Item.ItemType[] slot;
     private int ActiveSlot = 0;
-    private int SecundarySlot = 1;
+    private int SecondarySlot = 1;
   
     private void Awake()
     {
@@ -20,7 +20,23 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
-
+if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ActiveSlot = 0;
+            SecondarySlot = 1;
+        }
+if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ActiveSlot = 1;
+            SecondarySlot = 0;
+        }
+if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Vector3 pos = this.transform.forward;
+            pos.z += 1;
+            ItemsInTheWorld.GetComponent<ItemsInWorld>().SetActivity(slot[ActiveSlot], true,this.transform.position+pos );
+            RemoveItem();
+        }
     }
     private bool isSlotFree()
     {
@@ -37,7 +53,7 @@ public class PlayerInventory : MonoBehaviour
         }
         return isFree;
     }
-    public bool AddItem(Item.ItemType newItem)
+    public bool AddItem(Item newItem)
     {
         Debug.Log("additem?");
         if (isSlotFree())
@@ -46,8 +62,8 @@ public class PlayerInventory : MonoBehaviour
             {
                 if (slot[i] == Item.ItemType.empty) 
                 {
-                    slot[i] = newItem;
-                    ItemsInTheWorld.GetComponent<ItemsInWorld>().SetActivity(newItem, false);
+                    slot[i] = newItem.itemType;
+                    ItemsInTheWorld.GetComponent<ItemsInWorld>().SetActivity(newItem.itemType, false, this.transform.position);
                     break;
                 }
             }
@@ -107,7 +123,7 @@ public class PlayerInventory : MonoBehaviour
                     //TODO
                     break;
                 case Item.ItemType.Acid:
-                    if (slot[SecundarySlot]==Item.ItemType.Ammunition)
+                    if (slot[SecondarySlot]==Item.ItemType.Ammunition)
                     {
                         ItemsInTheWorld.GetComponent<ItemsInWorld>().UseItem(Item.ItemType.Acid);
                     }

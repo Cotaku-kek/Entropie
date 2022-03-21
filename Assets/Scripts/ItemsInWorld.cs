@@ -112,51 +112,65 @@ public class ItemsInWorld : MonoBehaviour
             default: break;
         }
     }
-    public void SetActivity(Item.ItemType itemType, bool isActive)
+    public void SetActivity(Item.ItemType theItem, bool isActive, Vector3 Position)
     {
-        switch (itemType)
+        switch (theItem)
         {
             case Item.ItemType.BloodFlask:
                 BloodFlask.SetActive(isActive);
+                BloodFlask.transform.position = Position;
                 break;
             case Item.ItemType.Tome:
                 Tome.SetActive(isActive);
+                Tome.transform.position = Position;
                 break;
             case Item.ItemType.Shotgun:
                 Shotgun.SetActive(isActive);
+                Shotgun.transform.position = Position;
                 break;
             case Item.ItemType.Carrot:
                 Carrot.SetActive(isActive);
+                Carrot.transform.position = Position;
                 break;
             case Item.ItemType.Candle:
                 Candle.SetActive(isActive);
+                Candle.transform.position = Position;
                 break;
             case Item.ItemType.Silver:
                 Silver.SetActive(isActive);
+                Silver.transform.position = Position;
                 break;
             case Item.ItemType.Ammunition:
                 Ammunition.SetActive(isActive);
+                Ammunition.transform.position = Position;
                 break;
             case Item.ItemType.Acid:
                 Acid.SetActive(isActive);
+                Acid.transform.position = Position;
                 break;
             case Item.ItemType.Bell:
                 Bell.SetActive(isActive);
+                Bell.transform.position = Position;
                 break;
             case Item.ItemType.VampireCircleComp:
                 VampCircComp.SetActive(isActive);
+                VampCircComp.transform.position = Position;
                 break;
             case Item.ItemType.Cross:
                 Cross.SetActive(isActive);
+                Cross.transform.position = Position;
                 break;
             case Item.ItemType.Box:
                 Box.SetActive(isActive);
+                Box.transform.position = Position;
                 break;
             case Item.ItemType.FoolCrComp:
                 FoolCircComp.SetActive(isActive);
+                FoolCircComp.transform.position = Position;
                 break;
             case Item.ItemType.Stake:
                 Stake.SetActive(isActive);
+                Stake.transform.position = Position;
                 break;
             default: break;
         }
