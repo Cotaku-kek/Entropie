@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     private bool isChasing = false;
 
     private void Start() {
-        startingPosition = transform.position;
+        //startingPosition = transform.position;
         Debug.Log(startingPosition);
         //Here we start a new coroutine. This will start a new little program, that will run "indipendently" from the rest of the code.
         FindDestinationAndWalkThere();
@@ -98,6 +98,15 @@ public class EnemyAI : MonoBehaviour
         Debug.Log(agent.CalculatePath(player.position, path));
         agent.ResetPath();
         agent.SetPath(path);
+    }
+
+    private void EnemyIsParalyzed() {
+        /*
+        if() {
+                Debug.Log("Enemy is paralyzed");
+        }
+        */
+        
     }
 
 }

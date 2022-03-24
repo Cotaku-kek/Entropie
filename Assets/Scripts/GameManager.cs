@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
+        RenderSettings.skybox.SetColor("_SkyTint", Color.red);
         int randomIndex = Random.Range(0, enemy.Length);
         bell.Play();
         Vector3 spawnPos = player.transform.position + Random.insideUnitSphere * 10;
@@ -53,4 +54,10 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(DespawnEnemyTimer());
     }
+
+    public static void UpdateEnvironment() {
+        
+    }
+
+
 }
