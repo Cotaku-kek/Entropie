@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource background;
 
-    public GameObject enemy;
+    public GameObject[] enemy;
     public GameObject player;
 
     public GameObject enemyReference;
@@ -46,9 +46,10 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
+        int randomIndex = Random.Range(0, enemy.Length);
         bell.Play();
         Vector3 spawnPos = player.transform.position + Random.insideUnitSphere * 10;
-        enemyReference = Instantiate(enemy, spawnPos, Quaternion.identity);
+        enemyReference = Instantiate(enemy[randomIndex], spawnPos, Quaternion.identity);
 
         StartCoroutine(DespawnEnemyTimer());
     }
