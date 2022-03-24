@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7315032191738045672}
   - component: {fileID: 4783034238646030370}
   - component: {fileID: 6170307443961792926}
-  - component: {fileID: 6170307443961792924}
   - component: {fileID: 6170307443961792925}
+  - component: {fileID: 6170307443961792924}
   m_Layer: 0
   m_Name: JackBox
   m_TagString: Untagged
@@ -98,19 +98,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6170307443961792924
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6440213696905523703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03184206, y: 0.020000005, z: 0.020000005}
-  m_Center: {x: -0.0059210313, y: 0, z: 0}
 --- !u!65 &6170307443961792925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +107,19 @@ BoxCollider:
   m_GameObject: {fileID: 6440213696905523703}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.03, z: 0.03}
+  m_Center: {x: -0.0059210313, y: 0, z: 0}
+--- !u!65 &6170307443961792924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440213696905523703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.03184206, y: 0.020000005, z: 0.020000005}
