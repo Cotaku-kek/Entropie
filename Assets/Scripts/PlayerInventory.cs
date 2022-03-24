@@ -5,13 +5,30 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] GameObject ItemsInTheWorld;
-    [SerializeField] GameObject LitchRitualCircle;
-    [SerializeField] GameObject VampireRitualCircle;
-    [SerializeField] GameObject WerebunnyRitualCircle;
-    [SerializeField] GameObject FoolRitualCircle;
+    [SerializeField] public GameObject LitchRitualCircle;
+    [SerializeField] public GameObject VampireRitualCircle;
+    [SerializeField] public GameObject WerebunnyRitualCircle;
+    [SerializeField] public GameObject FoolRitualCircle;
     public Item.ItemType[] slot;
     private int ActiveSlot = 0;
     private int SecondarySlot = 1;
+
+    public GameObject GetCircle(int type)
+    {
+        if (type == 0)
+        {
+            return LitchRitualCircle;
+        }
+        else if (type == 1)
+        {
+            return WerebunnyRitualCircle;
+        }
+        else if (type == 2)
+        {
+            return VampireRitualCircle;
+        }
+        else { return FoolRitualCircle; }
+    }
   
     private void Awake()
     {
@@ -37,7 +54,9 @@ if (Input.GetKeyDown(KeyCode.Q))
             ItemsInTheWorld.GetComponent<ItemsInWorld>().SetActivity(slot[ActiveSlot], true,this.transform.position+pos );
             RemoveItem();
         }
+if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
     }
+
     private bool isSlotFree()
     {
         bool isFree = false;
@@ -108,16 +127,21 @@ if (Input.GetKeyDown(KeyCode.Q))
                     //if(Physics.Raycast(aim,out RaycastHit hitinfo, 5, PickupLayer))
                     break;
                 case Item.ItemType.Carrot:
-                    //TODO
+                    if (WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().HasCandles()&& Vector3.Distance(transform.position, WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().getPos()) < 5)
+                    {
+                        WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().AddCarrot();
+                    }
                     break;
                 case Item.ItemType.Candle:
-                    if (Vector3.Distance(transform.position, WerebunnyRitualCircle.transform.position) < 3)
+                    if (Vector3.Distance(transform.position, WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().getPos()) < 5)
                     {
-                        ItemsInTheWorld.GetComponent<ItemsInWorld>().UseItem(Item.ItemType.Tome);
+                            Debug.Log("Needs Candlelight");
+                        WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().AddCandles();
                     }
                     break;
                 case Item.ItemType.Silver:
                     ItemsInTheWorld.GetComponent<ItemsInWorld>().UseItem(Item.ItemType.Silver);
+                    slot[ActiveSlot] = Item.ItemType.empty;
                     break;
                 case Item.ItemType.Ammunition:
                     //TODO

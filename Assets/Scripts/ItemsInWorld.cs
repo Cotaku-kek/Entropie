@@ -90,8 +90,10 @@ public class ItemsInWorld : MonoBehaviour
             case Item.ItemType.Carrot:
                 break;
             case Item.ItemType.Candle:
+
                 break;
             case Item.ItemType.Silver:
+                Silver.GetComponent<SilverScript>().DoItemAction();
                 break;
             case Item.ItemType.Ammunition:
                 break;

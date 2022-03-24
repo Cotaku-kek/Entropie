@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] GameObject Player;
+    [SerializeField] protected GameObject Player;
     public enum ItemType
     {
         BloodFlask,

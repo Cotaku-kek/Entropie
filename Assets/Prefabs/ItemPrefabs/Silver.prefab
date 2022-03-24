@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2421263676333223080}
   - component: {fileID: 468085421037131874}
   - component: {fileID: 1278860203615403079}
-  - component: {fileID: 1278860203615403078}
   - component: {fileID: 1278860203615403077}
+  - component: {fileID: 1278860203615403078}
   m_Layer: 0
   m_Name: Silver
   m_TagString: Untagged
@@ -98,19 +98,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1278860203615403078
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125141872033315255}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.020000005, z: 0.0029088955}
-  m_Center: {x: 0, y: 1.214396e-16, z: -0.008545554}
 --- !u!65 &1278860203615403077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +107,19 @@ BoxCollider:
   m_GameObject: {fileID: 2125141872033315255}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03, y: 0.03, z: 0.01}
+  m_Center: {x: 0, y: 1.214396e-16, z: -0.008545554}
+--- !u!65 &1278860203615403078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125141872033315255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.020000005, z: 0.0029088955}
