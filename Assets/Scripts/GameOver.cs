@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public GameObject[] whatHitMe;
     void OnCollisionEnter(Collision whatHitMe)
     {
-        if(whatHitMe.gameObject.tag == "LitchKing" || whatHitMe.gameObject.tag == "Warebunny")
+        if(whatHitMe.gameObject.tag == "LitchKing_Prefab" || whatHitMe.gameObject.tag == "Warebunny_Prefab")
         {
             Debug.Log("GameOver");
         }

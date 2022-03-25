@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4026731612093445147}
   - component: {fileID: 4026731612093445146}
   m_Layer: 0
-  m_Name: LitchKing
+  m_Name: LitchKing_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1591
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256

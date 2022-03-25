@@ -19,9 +19,10 @@ public class EnemyAI : MonoBehaviour
     public float sightRange;
     public bool playerInSightRange;
     private bool isChasing = false;
+    private bool move = true;
 
     private void Start() {
-        //startingPosition = transform.position;
+        startingPosition = transform.position;
         Debug.Log(startingPosition);
         //Here we start a new coroutine. This will start a new little program, that will run "indipendently" from the rest of the code.
         FindDestinationAndWalkThere();
@@ -91,22 +92,22 @@ public class EnemyAI : MonoBehaviour
     private void SetDestinationToPlayerPosition() {
         Vector3 samplePoint = player.position;
         
-        //NavMeshHit hit;
+        NavMeshHit hit;
         NavMeshPath path = new NavMeshPath();
         
-        //NavMesh.SamplePosition(samplePoint, out hit, float.MaxValue, whatIsGround);
+        NavMesh.SamplePosition(samplePoint, out hit, float.MaxValue, whatIsGround);
         Debug.Log(agent.CalculatePath(player.position, path));
         agent.ResetPath();
         agent.SetPath(path);
     }
 
-    private void EnemyIsParalyzed() {
-        /*
-        if() {
-                Debug.Log("Enemy is paralyzed");
-        }
-        */
-        
+   public void OnCollisionEnter(Collision col)
+    {
+      if (col.gameObject.name == "FPSController")
+      {
+         move = false;
+      }
+   
     }
 
 }
