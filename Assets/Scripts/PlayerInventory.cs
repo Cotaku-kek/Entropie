@@ -60,7 +60,7 @@ if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
     private bool isSlotFree()
     {
         bool isFree = false;
-        Debug.Log("isSlotFree");
+        //Debug.Log("isSlotFree");
         for(int i=0; i< 2; i++)
         {
             if (slot[i].ToString() != "empty")
@@ -68,13 +68,13 @@ if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
                 continue;
             }
             isFree = true;
-            Debug.Log("freier inventarslot");
+            //Debug.Log("freier inventarslot");
         }
         return isFree;
     }
     public bool AddItem(Item newItem)
     {
-        Debug.Log("additem?");
+        //Debug.Log("additem?");
         if (isSlotFree())
         {
             for (int i = 0; i < 2; i++)
@@ -86,11 +86,11 @@ if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
                     break;
                 }
             }
-            Debug.Log("Yees, Added");
+            //Debug.Log("Yees, Added");
             return true;
         }
         else {
-            Debug.Log("Inventory full");
+            //Debug.Log("Inventory full");
             return false;
         }
     }
