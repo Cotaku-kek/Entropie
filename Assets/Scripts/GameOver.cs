@@ -7,9 +7,9 @@ public class GameOver : MonoBehaviour
     public GameObject[] whatHitMe;
     void OnCollisionEnter(Collision whatHitMe)
     {
-        if(whatHitMe.gameObject.tag == "LitchKing_Prefab" || whatHitMe.gameObject.tag == "Warebunny_Prefab")
+        if(whatHitMe.gameObject.tag.Equals("Enemy"))
         {
-            Debug.Log("GameOver");
+        Debug.Log("GameOver");
         }
     }
 }
