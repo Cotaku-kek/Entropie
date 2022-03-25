@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -92,22 +93,21 @@ public class EnemyAI : MonoBehaviour
     private void SetDestinationToPlayerPosition() {
         Vector3 samplePoint = player.position;
         
-        NavMeshHit hit;
+        //NavMeshHit hit;
         NavMeshPath path = new NavMeshPath();
         
-        NavMesh.SamplePosition(samplePoint, out hit, float.MaxValue, whatIsGround);
+        //NavMesh.SamplePosition(samplePoint, out hit, float.MaxValue, whatIsGround);
         Debug.Log(agent.CalculatePath(player.position, path));
         agent.ResetPath();
         agent.SetPath(path);
     }
 
-   public void OnCollisionEnter(Collision col)
+   public void OnCollisionEnter(Collision collision)
     {
-      if (col.gameObject.name == "FPSController")
+      if (collision.gameObject.CompareTag("Player"))
       {
-         move = false;
+          SceneManager.LoadScene("GameOverScreen");
       }
-   
     }
 
 }
