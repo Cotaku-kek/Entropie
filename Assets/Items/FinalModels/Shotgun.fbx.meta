@@ -3,7 +3,42 @@ guid: d615b505f73368a4389e126b4083aee9
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barrell
+    second: {fileID: 2100000, guid: 3cef6816284d0f845b098e410e4c60de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chamber
+    second: {fileID: 2100000, guid: 3cef6816284d0f845b098e410e4c60de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lever
+    second: {fileID: 2100000, guid: 3cef6816284d0f845b098e410e4c60de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stock
+    second: {fileID: 2100000, guid: 1206db0a5c6c5074fa45ed3003b25943, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trigger
+    second: {fileID: 2100000, guid: 3cef6816284d0f845b098e410e4c60de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trigger Guard
+    second: {fileID: 2100000, guid: 3cef6816284d0f845b098e410e4c60de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood Front
+    second: {fileID: 2100000, guid: 1206db0a5c6c5074fa45ed3003b25943, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

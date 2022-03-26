@@ -3,7 +3,17 @@ guid: 52205c2e59c313f4faa2ab706edf3c94
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Acid Flask
+    second: {fileID: 2100000, guid: 63a29c048f48d1b43bc4667a37d29ff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Acid Korken
+    second: {fileID: 2100000, guid: aee69be28dc41394b9a2cc3e0e20fcf6, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

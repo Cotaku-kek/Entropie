@@ -3,7 +3,12 @@ guid: 6036b6f4283bbb242b19ccd45c3c6549
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knoblauch
+    second: {fileID: 2100000, guid: d42b4a0c63f4e4a459a56809b1d081c1, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

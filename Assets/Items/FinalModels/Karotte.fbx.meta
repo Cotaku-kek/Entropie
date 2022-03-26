@@ -3,7 +3,17 @@ guid: a58cc77bf94da194a8329933b2224229
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Karotte
+    second: {fileID: 2100000, guid: a34d9ebb595534940aecba823d840b12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Karotten Bl\xE4tter"
+    second: {fileID: 2100000, guid: 20fe2f78e5848484fb22898f953d156c, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

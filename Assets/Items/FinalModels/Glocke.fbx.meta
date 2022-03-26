@@ -3,7 +3,12 @@ guid: 4fd55447c355156468cc1b6153260858
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glocke
+    second: {fileID: 2100000, guid: c675445897e36524ab3be1268bd7e8fd, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
