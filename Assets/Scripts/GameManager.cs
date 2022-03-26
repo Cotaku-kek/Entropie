@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Experimental.Rendering.LWRP;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +11,8 @@ public class GameManager : MonoBehaviour
     /*public float timeToSpawn;
     public float timeToDespawn;*/
     public float timeBehaviourTick;
-
+    public GameObject volumeContainer;
     public AudioSource bell;
-    public AudioSource background;
 
     public GameObject[] enemy;
     public GameObject player;
@@ -22,11 +23,6 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(SpawnEnemyTimer());
         SpawnEnemy();
         StartCoroutine(BehaviourTickTimer());
-    }
-
-    void Update()
-    {
-        
     }
    
     IEnumerator BehaviourTickTimer()
@@ -67,16 +63,31 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         enemyReference.SetActive(false);
-        Debug.Log("BlinkEnded");
+        StartCoroutine(ChangePostProcessWeightRoutine(0f, 5f));
+        Debug.Log("Blink Ended");
         StartCoroutine(BehaviourTickTimer());
     }
     void Hunt()
     {
         Debug.Log("Hunt Starting");
         bell.Play();
-        RenderSettings.skybox.SetColor("_SkyTint", Color.red);
         enemyReference.SetActive(true);
         StartCoroutine(BehaviourTickTimer());
+        StartCoroutine(ChangePostProcessWeightRoutine(1f, 5f));
+    }
+
+    IEnumerator ChangePostProcessWeightRoutine(float destinationWeight, float duration) {
+        Volume volume = volumeContainer.GetComponent<Volume>();
+        
+        float timer = 0f;
+        float startWeight = volume.weight;
+
+        while (timer < duration) {
+            volume.weight = Mathf.Lerp(startWeight, destinationWeight, timer / duration);
+            //Debug.Log(volume.weight);
+            yield return new WaitForEndOfFrame();
+            timer += Time.deltaTime;
+        }
     }
 
     /*IEnumerator SpawnEnemyTimer()
@@ -99,7 +110,6 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-
         int randomIndex = Random.Range(0, enemy.Length);
         Vector3 spawnPos = new Vector3(-66.1f,35.323f,-43.7f);
         enemyReference = Instantiate(enemy[randomIndex], spawnPos, Quaternion.identity);
@@ -108,7 +118,8 @@ public class GameManager : MonoBehaviour
        // StartCoroutine(DespawnEnemyTimer());
     }
 
-    public static void UpdateEnvironment() {
+    public static void UpdateEnvironment() 
+    {
         
     }
 
