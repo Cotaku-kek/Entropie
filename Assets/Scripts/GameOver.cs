@@ -8,6 +8,7 @@ public class GameOver : MonoBehaviour
 
     public void LoadGame()
     {
+        Debug.Log("Button is pressed");
         SceneManager.LoadScene("StartScreen");
     }
 
