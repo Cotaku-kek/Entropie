@@ -8,12 +8,14 @@ public class BunnyCicleScript : MonoBehaviour
     [SerializeField] GameObject Carrot;
     Vector3 RealPos;
     // Start is called before the first frame update
-    bool doesHaveCandles;
+    public bool doesHaveCandles;
+    public bool doesHaveCarrots;
     void Start()
     {
-        Candles.SetActive(false);
-        Carrot.SetActive(false);
-        doesHaveCandles = false;
+         doesHaveCandles = false;
+         doesHaveCarrots = false;
+        Candles.SetActive(doesHaveCandles);
+        Carrot.SetActive(doesHaveCarrots);
     }
     public bool HasCandles()
     {
@@ -21,11 +23,14 @@ public class BunnyCicleScript : MonoBehaviour
     }
 public void AddCarrot()
     {
-        Carrot.SetActive(true);
+        doesHaveCarrots = true;
+        Carrot.SetActive(doesHaveCarrots);
     }
     public void AddCandles()
     {
-        Candles.SetActive(true);
+        Debug.Log("AddCandles");
+        doesHaveCandles = true;
+        Candles.SetActive(doesHaveCandles);
     }
     public void SetPosition(Vector3 pos)
     {
@@ -39,6 +44,6 @@ public void AddCarrot()
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

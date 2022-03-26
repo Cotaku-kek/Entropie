@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Candles: {fileID: 1033471441353079120}
   Carrot: {fileID: 826943286040092097}
+  doesHaveCandles: 1
+  doesHaveCarrots: 1
 --- !u!1 &1033471441353079120
 GameObject:
   m_ObjectHideFlags: 0

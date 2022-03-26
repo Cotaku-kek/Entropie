@@ -15,12 +15,12 @@ public class BloodFlaskSccript : Item
     {
 
     }
-    public new void DoItemAction()
+    new public void DoItemAction()
     {
-
-    }
-    public void OnPickup()
-    {
-
+        Vector3 offset = new Vector3(0, -1.5f, 0);
+        Vector3 spawntransform = Player.transform.position + offset;
+        Quaternion Rotate = new Quaternion(0, 0, 0, 0);
+        Instantiate(Player.GetComponent<PlayerInventory>().GetCircle(0), spawntransform, Rotate);
+        Player.GetComponent<PlayerInventory>().LitchRitualCircle.GetComponent<LitchRitualScript>().SetPosition(Player.transform.position);
     }
 }

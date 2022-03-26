@@ -115,11 +115,12 @@ if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
             {
                 case Item.ItemType.BloodFlask:
                     ItemsInTheWorld.GetComponent<ItemsInWorld>().UseItem(Item.ItemType.BloodFlask);
+                    slot[ActiveSlot] = Item.ItemType.empty;
                     break;
                 case Item.ItemType.Tome:
-                    if (Vector3.Distance(transform.position, LitchRitualCircle.transform.position) < 3)
+                    if (Vector3.Distance(transform.position, LitchRitualCircle.GetComponent<LitchRitualScript>().getPos()) < 5)
                     {
-                        ItemsInTheWorld.GetComponent<ItemsInWorld>().UseItem(Item.ItemType.Tome);
+                        LitchRitualCircle.GetComponent<LitchRitualScript>().AddTome();
                     }
                     break;
                 case Item.ItemType.Shotgun:
