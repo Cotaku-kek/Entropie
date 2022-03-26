@@ -3,7 +3,12 @@ guid: aaf6b989959e80242b5b8140a7c888fc
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kreuz
+    second: {fileID: 2100000, guid: 5d4ab7593d9cbf149997c2c2b97b359a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -3,7 +3,12 @@ guid: 316e8be9f35fb6448b3bc8de438b5bc3
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jackbox
+    second: {fileID: 2100000, guid: b81f783bbacef1a4a9bb6f6bcaa52ce8, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

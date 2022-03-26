@@ -3,7 +3,12 @@ guid: 7612b85602e444b49a046b31c21d9d22
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pflock
+    second: {fileID: 2100000, guid: ad3443ca58048cb4cb24a077e712173b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

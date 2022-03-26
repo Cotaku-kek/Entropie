@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glocke
-    second: {fileID: 2100000, guid: c675445897e36524ab3be1268bd7e8fd, type: 2}
+    second: {fileID: 2100000, guid: 2fc0bc02df282094192f57177a5e7815, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
