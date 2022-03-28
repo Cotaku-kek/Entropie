@@ -103,6 +103,7 @@ if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
         return slot[index];
     }
 
+
     private void Initialize()
     {
         slot = new Item.ItemType[2] {Item.ItemType.empty, Item.ItemType.empty };
@@ -121,23 +122,26 @@ if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
                     if (Vector3.Distance(transform.position, LitchRitualCircle.GetComponent<LitchRitualScript>().getPos()) < 5)
                     {
                         LitchRitualCircle.GetComponent<LitchRitualScript>().AddTome();
+                        slot[ActiveSlot] = Item.ItemType.empty;
                     }
                     break;
                 case Item.ItemType.Shotgun:
-                    Ray aim = new Ray(this.GetComponent<Camera>().transform.position, this.GetComponent<Camera>().transform.forward);
+                    Ray aim = new Ray(this.GetComponentInChildren<Camera>().transform.position, this.GetComponentInChildren<Camera>().transform.forward);
                     //if(Physics.Raycast(aim,out RaycastHit hitinfo, 5, PickupLayer))
                     break;
                 case Item.ItemType.Carrot:
                     if (WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().HasCandles()&& Vector3.Distance(transform.position, WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().getPos()) < 5)
                     {
                         WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().AddCarrot();
+                        slot[ActiveSlot] = Item.ItemType.empty;
                     }
                     break;
                 case Item.ItemType.Candle:
                     if (Vector3.Distance(transform.position, WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().getPos()) < 5)
                     {
-                            Debug.Log("Needs Candlelight");
+                           // Debug.Log("Needs Candlelight");
                         WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().AddCandles();
+                        slot[ActiveSlot] = Item.ItemType.empty;
                     }
                     break;
                 case Item.ItemType.Silver:

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1447824272181685590}
   - component: {fileID: 635894205213599061}
   - component: {fileID: 8620195935830644338}
+  - component: {fileID: 3337401050720433360}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -60,13 +61,13 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!54 &8757443456135799481
+--- !u!54 &3337401050720433360
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5433378405111995613}
+  m_GameObject: {fileID: 2259791260323919852}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -160,12 +161,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d615b505f73368a4389e126b4083aee9, type: 3}
---- !u!1 &5433378405111995613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d615b505f73368a4389e126b4083aee9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5162907544178893196}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4624330899763938919 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d615b505f73368a4389e126b4083aee9,

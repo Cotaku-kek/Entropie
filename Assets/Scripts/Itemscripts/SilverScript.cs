@@ -22,7 +22,8 @@ public class SilverScript : Item
         Vector3 offset = new Vector3(0, -1, 0);
         Vector3 spawntransform = Player.transform.position +offset;
         Quaternion Rotate = new Quaternion(0, 0, 0, 0);
-        Instantiate(Player.GetComponent<PlayerInventory>().GetCircle(1),spawntransform,Rotate );
+       // Instantiate(Player.GetComponent<PlayerInventory>().GetCircle(1),spawntransform,Rotate );
         Player.GetComponent<PlayerInventory>().WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().SetPosition(Player.transform.position);
+        Player.GetComponent<PlayerInventory>().WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().transform.position = spawntransform;
     }
 }
