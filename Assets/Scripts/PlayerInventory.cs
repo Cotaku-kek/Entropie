@@ -37,24 +37,24 @@ public class PlayerInventory : MonoBehaviour
 
     private void Update()
     {
-if (Input.GetKeyDown(KeyCode.Alpha1))
+    if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ActiveSlot = 0;
             SecondarySlot = 1;
         }
-if (Input.GetKeyDown(KeyCode.Alpha2))
+    if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ActiveSlot = 1;
             SecondarySlot = 0;
         }
-if (Input.GetKeyDown(KeyCode.Q))
+    if (Input.GetKeyDown(KeyCode.Q))
         {
             Vector3 pos = this.transform.forward;
             pos.z += 1;
             ItemsInTheWorld.GetComponent<ItemsInWorld>().SetActivity(slot[ActiveSlot], true,this.transform.position+pos );
             RemoveItem();
         }
-if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
+    if (Input.GetKeyDown(KeyCode.Mouse1)) { UseItem(); }
     }
 
     private bool isSlotFree()

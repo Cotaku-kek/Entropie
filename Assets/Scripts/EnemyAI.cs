@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -66,12 +66,6 @@ public class EnemyAI : MonoBehaviour
         FindDestinationAndWalkThere();
     }
 
-    private IEnumerable StalkingRoutine() {
-        while(Physics.CheckSphere(transform.position, sightRange, whatIsPlayer)) {
-            SetDestinationToPlayerPosition(); //Destination is player +- position? Enemy has to be near player.
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
 
     private IEnumerator ChasingRoutine() {
         while(Physics.CheckSphere(transform.position, sightRange, whatIsPlayer)) {

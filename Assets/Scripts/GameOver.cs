@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class GameOver : MonoBehaviour
 {
-
     public void Start()
     {
         Cursor.visible = true;
