@@ -7,7 +7,8 @@ public class LitchRitualScript : MonoBehaviour
     [SerializeField] GameObject Tome;
     bool HasTome;
     Vector3 RealPos;
-    // Start is called before the first frame update
+    public GameObject whoSummoning;
+
     void Start()
     {
         HasTome = false;
@@ -36,7 +37,7 @@ public class LitchRitualScript : MonoBehaviour
     }
     void SummonLitch()
     {
-        //todo
+        Instantiate(whoSummoning, transform.position, transform.rotation);
     }
     public void SetPosition(Vector3 pos)
     {
