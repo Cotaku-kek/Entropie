@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6192854965538961188}
   - component: {fileID: 6192854965538961191}
   - component: {fileID: 3695302876634283630}
+  - component: {fileID: 3292338581434590002}
   m_Layer: 0
   m_Name: Warebunny_Prefab
   m_TagString: Enemy
@@ -132,6 +133,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3292338581434590002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192854965538961190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e428a4f734e9d4b9a47380f6d76ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4559406370391605710
 PrefabInstance:
   m_ObjectHideFlags: 0
