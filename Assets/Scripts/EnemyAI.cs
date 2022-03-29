@@ -11,6 +11,9 @@ public class EnemyAI : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
     private Coroutine patrolingRoutine;
 
+    public enum Type { Litch, WereBunny};
+    public Type EnemyType;
+
     private Vector3 startingPosition;
     public Vector3 walkPoint;    
     bool walkPointSet;

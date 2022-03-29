@@ -51,6 +51,16 @@ public class GameManager : MonoBehaviour
     void Hint()
     {
         Debug.Log("Hint");
+        switch (enemyReference.GetComponent<EnemyAI>().EnemyType)
+        {
+            case EnemyAI.Type.Litch:
+                enemyReference.GetComponent<LitchBehaviour>().GiveHint();
+                break;
+            case EnemyAI.Type.WereBunny:
+                break;
+            default:
+                break;
+        }
         StartCoroutine(BehaviourTickTimer());
     }
     void Blink()
@@ -122,6 +132,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
+    public GameObject GetEnemyReferance()
+    {
+        return enemyReference;
+    }
 
 }

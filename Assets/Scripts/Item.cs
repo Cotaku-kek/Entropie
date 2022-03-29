@@ -30,14 +30,6 @@ public class Item : MonoBehaviour
     {
         return itemType;
     }
-    public void SetisActive(bool GonnaBeActive)
-    {
-        
-    }
-    public void DoItemAction()
-    {
-
-    }
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Player")

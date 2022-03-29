@@ -3,10 +3,20 @@ guid: 39761d2343749244ea87e9d9edc2a278
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: e6bd171c2e9f9bc4195de65ec8a3f882, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skully Skull.001
+    second: {fileID: 2100000, guid: 60ce780913ade2e4baa729e828eaeafc, type: 2}
   materials:
     materialImportMode: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 1
     materialLocation: 1
   animations:

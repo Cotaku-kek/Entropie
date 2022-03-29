@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4026731612093445140}
   - component: {fileID: 4026731612093445147}
   - component: {fileID: 4026731612093445146}
+  - component: {fileID: -3052665969412732205}
   m_Layer: 0
   m_Name: LitchKing_Prefab
   m_TagString: Enemy
@@ -117,6 +118,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
+  EnemyType: 0
   walkPoint: {x: 2.01, y: 2.08, z: 0}
   walkPointRange: 5
   sightRange: 10
@@ -140,6 +142,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3052665969412732205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026731612093445145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fe863ae75d6874f825a26619aa7fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shrines:
+  - {fileID: 2290025583924879572, guid: 2aea350b99a2bb646ba45d7e4d9cc1cc, type: 3}
+  - {fileID: 2290025583924879572, guid: 2aea350b99a2bb646ba45d7e4d9cc1cc, type: 3}
+  - {fileID: 2290025583924879572, guid: 2aea350b99a2bb646ba45d7e4d9cc1cc, type: 3}
+  Thrall: {fileID: 6560052243317477733, guid: 1082e5baa31bc6e458ee5f3e1475668c, type: 3}
+  Player: {fileID: 0}
 --- !u!1001 &5066324840785343842
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,7 +3,37 @@ guid: 2c589b6ef5bfd764b91b96b2a429f10d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Finger Knochen.001
+    second: {fileID: 2100000, guid: 60ce780913ade2e4baa729e828eaeafc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Handfl\xE4che.001"
+    second: {fileID: 2100000, guid: 60ce780913ade2e4baa729e828eaeafc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KnochenSubstance.001
+    second: {fileID: 2100000, guid: 60ce780913ade2e4baa729e828eaeafc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rippen.001
+    second: {fileID: 2100000, guid: 60ce780913ade2e4baa729e828eaeafc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "R\xFCckgrat.001"
+    second: {fileID: 2100000, guid: 60ce780913ade2e4baa729e828eaeafc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skully Skull.001
+    second: {fileID: 2100000, guid: 60ce780913ade2e4baa729e828eaeafc, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
