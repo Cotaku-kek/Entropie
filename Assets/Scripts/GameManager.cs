@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Experimental.Rendering.LWRP;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     public float timeBehaviourTick;
     public GameObject volumeContainer;
     public AudioSource bell;
+    public Collision collisionWithPlayer;
+
+    public bool enemyIsHunting = false;
 
     public GameObject[] enemy;
     public GameObject player;
@@ -79,6 +83,7 @@ public class GameManager : MonoBehaviour
     }
     void Hunt()
     {
+        enemyIsHunting = true;
         Debug.Log("Hunt Starting");
         bell.Play();
         enemyReference.SetActive(true);
@@ -128,13 +133,20 @@ public class GameManager : MonoBehaviour
        // StartCoroutine(DespawnEnemyTimer());
     }
 
-    public static void UpdateEnvironment() 
-    {
-        
-    }
     public GameObject GetEnemyReferance()
     {
         return enemyReference;
+    }
+
+    public void CheckCollision()
+    {
+        while(enemyIsHunting)
+        {
+            if (collisionWithPlayer.gameObject.CompareTag("Player"))
+            {
+                SceneManager.LoadScene("GameOverScreen");   
+            }
+        }
     }
 
 }
