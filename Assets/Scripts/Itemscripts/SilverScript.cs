@@ -17,7 +17,7 @@ public class SilverScript : Item
         
     }
 
-    new public void DoItemAction()
+    public void DoItemAction()
     {
         Vector3 offset = new Vector3(0, -1, 0);
         Vector3 spawntransform = Player.transform.position +offset;

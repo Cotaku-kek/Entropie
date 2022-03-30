@@ -155,10 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shrines:
-  - {fileID: 2290025583924879572, guid: 2aea350b99a2bb646ba45d7e4d9cc1cc, type: 3}
-  - {fileID: 2290025583924879572, guid: 2aea350b99a2bb646ba45d7e4d9cc1cc, type: 3}
-  - {fileID: 2290025583924879572, guid: 2aea350b99a2bb646ba45d7e4d9cc1cc, type: 3}
-  Thrall: {fileID: 6560052243317477733, guid: 1082e5baa31bc6e458ee5f3e1475668c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Thrall: {fileID: 100000, guid: e3ae06a3979f53046aa05330d69de1fa, type: 3}
   Player: {fileID: 0}
 --- !u!1001 &5066324840785343842
 PrefabInstance:

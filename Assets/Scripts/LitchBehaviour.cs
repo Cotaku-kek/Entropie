@@ -17,6 +17,10 @@ public class LitchBehaviour : MonoBehaviour
     private void Awake()
     {
         Player = GameObject.Find("FPSController");
+        Thrall= GameObject.Find("Thrall");
+        Shrines[0] = GameObject.Find("ShrinePrefab");
+        Shrines[1] = GameObject.Find("ShrinePrefab (1)");
+        Shrines[2] = GameObject.Find("ShrinePrefab (2)");
         ShrinesInstanciated = false;
     }
     public void GiveHint()
@@ -32,39 +36,41 @@ public class LitchBehaviour : MonoBehaviour
     {
         if (ShrineIterator >= 3)
         {
-            if (ShrinesInstanciated == false) { ShrinesInstanciated= true; }
+            //if (ShrinesInstanciated == false) { ShrinesInstanciated= true; }
             ShrineIterator = 0;
             Debug.Log("Iterator auf 0");
         }
-        else { ShrineIterator++; }
+        /*else { ShrineIterator++; }
         if (ShrinesInstanciated == false)
         {
+            Transform SpawnTransform = this.transform;
             Vector3 SpawnPosition = this.transform.position + Random.insideUnitSphere;
-            Quaternion Rotation = new Quaternion(-90, 0, 0, 0);
-            Instantiate(Shrines[ShrineIterator], SpawnPosition, Rotation);
+            Quaternion Rotation = new Quaternion(-45, 0, 0, 0);
+            Shrines[ShrineIterator].transform.position=SpawnPosition;
             Debug.Log("Shrine has been Instanciated");
         }
         else
-        {
+        {*/
             Shrines[ShrineIterator].transform.position = this.transform.position + Random.insideUnitSphere;
             Debug.Log("Shrine has been Planted");
-        }
+       // }
     }
     void DoThrallHint()
     {
-        if (ThrallInstatiated == false)
+        /*if (ThrallInstatiated == false)
         {
+            Transform SpawnTransform = Player.transform;
             Vector3 SpawnPosition = Player.transform.position + Random.insideUnitSphere;
-            Quaternion SpawnRotation = new Quaternion(-90, 0, 0, 0);
-            Instantiate(Thrall, SpawnPosition, SpawnRotation);
+            Quaternion SpawnRotation = new Quaternion(-45, 0, 0, 0);
+            Instantiate(Thrall, SpawnTransform, true);
             ThrallInstatiated = true;
             Debug.Log("Thrall Spawned");
         }
         else
-        {
-            Thrall.transform.position = Player.transform.position + Random.insideUnitSphere;
+        {*/
+            Thrall.transform.position = Player.transform.position + Random.insideUnitSphere*2;
             Debug.Log("thrall is there");
-        }
+        //}
     }
 
 }

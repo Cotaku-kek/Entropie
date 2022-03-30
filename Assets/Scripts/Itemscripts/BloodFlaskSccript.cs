@@ -15,7 +15,7 @@ public class BloodFlaskSccript : Item
     {
 
     }
-    new public void DoItemAction()
+    public void DoItemAction()
     {
         Vector3 offset = new Vector3(0, -0.7f, 0);
         Vector3 spawntransform = Player.transform.position + offset;
