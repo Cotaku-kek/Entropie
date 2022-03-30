@@ -108,13 +108,21 @@ public class PlayerInventory : MonoBehaviour
     {
         slot = new Item.ItemType[2] {Item.ItemType.empty, Item.ItemType.empty };
     }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), slot[ActiveSlot].ToString());
+    }
     public void UseItem()
     {
+        Debug.Log("Item used");
         if (slot[ActiveSlot] != Item.ItemType.empty)
         {
+            Debug.Log("Slot not empty"); 
             switch (slot[ActiveSlot])
             {
                 case Item.ItemType.BloodFlask:
+                    Debug.Log("BloodFlask"); 
                     ItemsInTheWorld.GetComponent<ItemsInWorld>().UseItem(Item.ItemType.BloodFlask);
                     slot[ActiveSlot] = Item.ItemType.empty;
                     break;

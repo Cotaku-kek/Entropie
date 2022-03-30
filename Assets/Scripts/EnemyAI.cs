@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
+
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -27,7 +28,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Start() {
         startingPosition = transform.position;
-        Debug.Log(startingPosition);
         //Here we start a new coroutine. This will start a new little program, that will run "indipendently" from the rest of the code.
         FindDestinationAndWalkThere();
     }
@@ -93,12 +93,12 @@ public class EnemyAI : MonoBehaviour
         NavMeshPath path = new NavMeshPath();
         
         //NavMesh.SamplePosition(samplePoint, out hit, float.MaxValue, whatIsGround);
-        Debug.Log(agent.CalculatePath(player.position, path));
+        agent.CalculatePath(player.position, path);
         agent.ResetPath();
         agent.SetPath(path);
     }
 
-   public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
       if (collision.gameObject.CompareTag("Player"))
       {

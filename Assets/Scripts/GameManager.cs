@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
     }
     void Blink()
     {
-        Debug.Log("Blink");
         enemyReference.SetActive(true);
         StartCoroutine(BlinkTickTimer());
     }
@@ -78,7 +77,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         enemyReference.SetActive(false);
         StartCoroutine(ChangePostProcessWeightRoutine(0f, 5f));
-        Debug.Log("Blink Ended");
         StartCoroutine(BehaviourTickTimer());
     }
     void Hunt()

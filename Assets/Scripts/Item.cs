@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
     [SerializeField] protected GameObject Player;
     public enum ItemType
     {
+        empty = 0,
         BloodFlask,
         Tome,
         Shotgun,
@@ -21,7 +22,6 @@ public class Item : MonoBehaviour
         Bell,
         FoolCrComp,
         Box,
-        empty,
     }
 
     public ItemType itemType;
