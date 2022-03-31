@@ -26,20 +26,36 @@ public class EnemyAI : MonoBehaviour
     private bool isChasing = false;
     private bool move = true;
 
+    private bool isUnshackled;
+
+    public bool GiveIsUnShackled()
+    {
+        return isUnshackled;
+    }
+
     private void Start() {
         startingPosition = transform.position;
         //Here we start a new coroutine. This will start a new little program, that will run "indipendently" from the rest of the code.
         FindDestinationAndWalkThere();
+        isUnshackled = true;
     }
 
     private void Update() {
-        //Check for sight range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        if (isUnshackled)
+        {
+            //Check for sight range
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-        if (playerInSightRange && !isChasing) {
-            StopCoroutine(patrolingRoutine);
-            StartCoroutine(ChasingRoutine());
-            isChasing = true;
+            if (playerInSightRange && !isChasing)
+            {
+                StopCoroutine(patrolingRoutine);
+                StartCoroutine(ChasingRoutine());
+                isChasing = true;
+            }
+        }
+        else
+        {
+
         }
     }
     
@@ -61,12 +77,16 @@ public class EnemyAI : MonoBehaviour
 
     //IEnumerator is the type that a coroutine has to have.
     private IEnumerator PatrolingRoutine() {
-        do {
-            yield return new WaitForEndOfFrame();
-        } while (!IsDestinationReached());
-        
-        //We reached our destination. Now we find a new destination and walk there.
-        FindDestinationAndWalkThere();
+        if (isUnshackled)
+        {
+            do
+            {
+                yield return new WaitForEndOfFrame();
+            } while (!IsDestinationReached());
+
+            //We reached our destination. Now we find a new destination and walk there.
+            FindDestinationAndWalkThere();
+        }
     }
 
 
@@ -75,8 +95,10 @@ public class EnemyAI : MonoBehaviour
             SetDestinationToPlayerPosition();
             yield return new WaitForSeconds(0.2f);
         }
-
-        FindDestinationAndWalkThere();
+        if (isUnshackled == true)
+        {
+            FindDestinationAndWalkThere();
+        }
         isChasing = false;
     }
     private bool IsDestinationReached() {
@@ -87,7 +109,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void SetDestinationToPlayerPosition() {
-        Vector3 samplePoint = player.position;
+        // samplePoint = player.position;
         
         //NavMeshHit hit;
         NavMeshPath path = new NavMeshPath();
@@ -106,4 +128,10 @@ public class EnemyAI : MonoBehaviour
       }
     }
 
+    public void Summon(Vector3 pos)
+    {
+        this.transform.position = pos;
+        isUnshackled = false;
+
+    }
 }

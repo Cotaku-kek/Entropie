@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Collision collisionWithPlayer;
 
     public bool enemyIsHunting = false;
+    public bool enemyIsShackled = false;
 
     public GameObject[] enemy;
     public GameObject player;
@@ -32,24 +33,30 @@ public class GameManager : MonoBehaviour
     IEnumerator BehaviourTickTimer()
     {
         yield return new WaitForSeconds(timeBehaviourTick);
-        BehaviourTick();
+       
+            BehaviourTick(); 
+       
     }
     void BehaviourTick()
     {
-        int Choice = Random.Range(0, 100);
-        Debug.Log(Choice);
-        if (0 <= Choice&&Choice <= 45)
+        if (!enemyIsShackled)
         {
-            Hint();
+            int Choice = Random.Range(0, 100);
+            Debug.Log(Choice);
+            if (0 <= Choice && Choice <= 45)
+            {
+                Hint();
+            }
+            else if (46 <= Choice && Choice <= 90)
+            {
+                Blink();
+            }
+            else if (91 <= Choice && Choice <= 100)
+            {
+                Hunt();
+            }
         }
-        else if (46 <= Choice && Choice <= 90)
-        {
-            Blink();
-        }
-        else if (91 <= Choice && Choice <= 100)
-        {
-            Hunt();
-        }
+        else { enemyReference.SetActive(true); }
 
     }
     void Hint()

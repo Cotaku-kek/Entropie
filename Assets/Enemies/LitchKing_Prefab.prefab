@@ -158,8 +158,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Thrall: {fileID: 100000, guid: e3ae06a3979f53046aa05330d69de1fa, type: 3}
+  Thrall: {fileID: 0}
   Player: {fileID: 0}
+  GameManager: {fileID: 0}
 --- !u!1001 &5066324840785343842
 PrefabInstance:
   m_ObjectHideFlags: 0
