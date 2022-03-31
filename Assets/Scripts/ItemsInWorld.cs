@@ -25,28 +25,30 @@ public class ItemsInWorld : MonoBehaviour
     [SerializeField] GameObject Bell;
     [SerializeField] GameObject FoolCircComp;
     [SerializeField] GameObject Box;
+    [SerializeField] GameObject ItemSpawn1;
+    [SerializeField] GameObject ItemSpawn2;
 
 
     private void Start()
     {
 
         SpawnerPlace = new Spawnplace[16];
-        SpawnerPlace[0].SpawnPosition.Set(-37f, 2.5f, 4f);
-        SpawnerPlace[1].SpawnPosition.Set(-11.55f, 1.73f, 14.93f);
-        SpawnerPlace[2].SpawnPosition.Set(-20.53f, 1.405f, -4.11f);
-        SpawnerPlace[3].SpawnPosition.Set(-19.53f, 1.405f, -4.11f);
-        SpawnerPlace[4].SpawnPosition.Set(-19.53f, 1.405f, -3.11f);
-        SpawnerPlace[5].SpawnPosition.Set(-19.53f, 1.405f, -5.11f);
-        SpawnerPlace[6].SpawnPosition.Set(-18.53f, 1.405f, -4.11f);
-        SpawnerPlace[7].SpawnPosition.Set(-18.53f, 1.405f, -3.11f);
-        SpawnerPlace[8].SpawnPosition.Set(-18.53f, 1.405f, -5.11f);
-        SpawnerPlace[9].SpawnPosition.Set(-17.53f, 1.405f, -4.11f);
-        SpawnerPlace[10].SpawnPosition.Set(-17.53f, 1.405f, -3.11f);
-        SpawnerPlace[11].SpawnPosition.Set(-17.53f, 1.405f, -5.11f);
-        SpawnerPlace[12].SpawnPosition.Set(-16.53f, 1.405f, -4.11f);
-        SpawnerPlace[13].SpawnPosition.Set(-16.53f, 1.405f, -3.11f);
-        SpawnerPlace[14].SpawnPosition.Set(-16.53f, 1.405f, -5.11f);
-        SpawnerPlace[15].SpawnPosition.Set(-15.53f, 1.405f, -4.11f);
+        SpawnerPlace[0].SpawnPosition.Set(BloodFlask.transform.position.x, BloodFlask.transform.position.y, BloodFlask.transform.position.z);
+        SpawnerPlace[1].SpawnPosition.Set(Tome.transform.position.x, Tome.transform.position.y, Tome.transform.position.z);
+        SpawnerPlace[2].SpawnPosition.Set(Shotgun.transform.position.x, Shotgun.transform.position.y, Shotgun.transform.position.z);
+        SpawnerPlace[3].SpawnPosition.Set(VampCircComp.transform.position.x, VampCircComp.transform.position.y, VampCircComp.transform.position.z);
+        SpawnerPlace[4].SpawnPosition.Set(Cross.transform.position.x, Cross.transform.position.y, Cross.transform.position.z);
+        SpawnerPlace[5].SpawnPosition.Set(Stake.transform.position.x, Stake.transform.position.y, Stake.transform.position.z);
+        SpawnerPlace[6].SpawnPosition.Set(Ammunition.transform.position.x, Ammunition.transform.position.y, Ammunition.transform.position.z);
+        SpawnerPlace[7].SpawnPosition.Set(Acid.transform.position.x, Acid.transform.position.y, Acid.transform.position.z);
+        SpawnerPlace[8].SpawnPosition.Set(Silver.transform.position.x, Silver.transform.position.y, Silver.transform.position.z);
+        SpawnerPlace[9].SpawnPosition.Set(Candle.transform.position.x, Candle.transform.position.y, Candle.transform.position.z);
+        SpawnerPlace[10].SpawnPosition.Set(Carrot.transform.position.x, Carrot.transform.position.y, Carrot.transform.position.z);
+        SpawnerPlace[11].SpawnPosition.Set(Bell.transform.position.x, Bell.transform.position.y, Bell.transform.position.z);
+        SpawnerPlace[12].SpawnPosition.Set(FoolCircComp.transform.position.x, FoolCircComp.transform.position.y, FoolCircComp.transform.position.z);
+        SpawnerPlace[13].SpawnPosition.Set(Box.transform.position.x, Box.transform.position.y, Box.transform.position.z);
+        SpawnerPlace[14].SpawnPosition.Set(ItemSpawn1.transform.position.x, ItemSpawn1.transform.position.y, ItemSpawn1.transform.position.z);
+        SpawnerPlace[15].SpawnPosition.Set(ItemSpawn2.transform.position.x, ItemSpawn2.transform.position.y, ItemSpawn2.transform.position.z);
         for (int i = 0; i < 16; i++)
         {
             SpawnerPlace[i].IsFree = true;

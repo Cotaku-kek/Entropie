@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     void SpawnEnemy()
     {
         int randomIndex = Random.Range(0, enemy.Length);
-        Vector3 spawnPos = new Vector3(-66.1f,35.323f,-43.7f);
+        Vector3 spawnPos = new Vector3(-51.4f,22.46f,-60.91f);
         enemyReference = Instantiate(enemy[randomIndex], spawnPos, Quaternion.identity);
         enemyReference.SetActive(false);
 
