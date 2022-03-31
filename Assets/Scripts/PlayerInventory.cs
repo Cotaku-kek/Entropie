@@ -146,7 +146,7 @@ public class PlayerInventory : MonoBehaviour
                             Debug.Log("hit");
                             LitchRitualCircle.GetComponent<LitchRitualScript>().StartBanish();
                         }
-                        Debug.Log("miss");
+                        
                     }
                     break;
                 case Item.ItemType.Carrot:
