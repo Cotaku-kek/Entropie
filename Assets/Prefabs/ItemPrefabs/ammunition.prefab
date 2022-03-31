@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5304839385832041245}
   - component: {fileID: 5626168211428303286}
-  - component: {fileID: 9085575823591931173}
   - component: {fileID: 7066574262954212004}
+  - component: {fileID: 9085575823591931173}
   m_Layer: 0
   m_Name: ammunition
   m_TagString: Untagged
@@ -50,7 +50,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &9085575823591931173
+--- !u!65 &7066574262954212004
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,9 +61,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.022635838, y: 0.022635844, z: 0.076}
-  m_Center: {x: 0, y: 0, z: 0.027}
---- !u!65 &7066574262954212004
+  m_Size: {x: 0.1, y: 0.1, z: 0.15539986}
+  m_Center: {x: 0, y: -5.59731e-17, z: 0.027311236}
+--- !u!65 &9085575823591931173
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +74,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 0.022635838, y: 0.022635844, z: 0.076}
   m_Center: {x: 0, y: 0, z: 0.027}
 --- !u!1001 &3489738593116333866
 PrefabInstance:

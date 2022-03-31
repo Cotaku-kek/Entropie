@@ -8,6 +8,7 @@ public class LitchRitualScript : MonoBehaviour
     bool HasTome;
     Vector3 RealPos;
     public GameObject whoSummoning;
+    public GameObject GameManager;
 
     void Start()
     {
@@ -37,7 +38,13 @@ public class LitchRitualScript : MonoBehaviour
     }
     void SummonLitch()
     {
-        Instantiate(whoSummoning, transform.position, transform.rotation);
+        GameObject Enemy = GameManager.GetComponent<GameManager>().GetEnemyReferance();
+        if (Enemy.GetComponent<EnemyAI>().EnemyType == EnemyAI.Type.Litch)
+        {
+            Enemy.GetComponent<EnemyAI>().Summon(RealPos);
+            GameManager.GetComponent<GameManager>().enemyIsShackled = true;
+        }
+        //Instantiate(whoSummoning, transform.position, transform.rotation);
     }
     public void SetPosition(Vector3 pos)
     {

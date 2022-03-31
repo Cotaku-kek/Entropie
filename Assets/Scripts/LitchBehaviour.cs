@@ -12,6 +12,7 @@ public class LitchBehaviour : MonoBehaviour
     readonly int ChanceShrines=57;
     readonly int ChanceThrall = 43;
     int ShrineIterator = 0;
+    [SerializeField] GameObject GameManager;
 
 
     private void Awake()
@@ -21,7 +22,9 @@ public class LitchBehaviour : MonoBehaviour
         Shrines[0] = GameObject.Find("ShrinePrefab");
         Shrines[1] = GameObject.Find("ShrinePrefab (1)");
         Shrines[2] = GameObject.Find("ShrinePrefab (2)");
+        GameManager = GameObject.Find("GameManager");
         ShrinesInstanciated = false;
+        
     }
     public void GiveHint()
     {
@@ -51,8 +54,9 @@ public class LitchBehaviour : MonoBehaviour
         }
         else
         {*/
-            Shrines[ShrineIterator].transform.position = this.transform.position + Random.insideUnitSphere;
+            Shrines[ShrineIterator].transform.position = this.transform.position + Random.insideUnitSphere*2;
             Debug.Log("Shrine has been Planted");
+        ShrineIterator++;
        // }
     }
     void DoThrallHint()

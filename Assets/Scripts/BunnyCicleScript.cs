@@ -6,6 +6,7 @@ public class BunnyCicleScript : MonoBehaviour
 {
     [SerializeField] GameObject Candles;
     [SerializeField] GameObject Carrot;
+    public GameObject GameManager;
     Vector3 RealPos;
     // Start is called before the first frame update
     public bool doesHaveCandles;
@@ -25,6 +26,7 @@ public void AddCarrot()
     {
         doesHaveCarrots = true;
         Carrot.SetActive(doesHaveCarrots);
+        StartCoroutine(SummoningCoroutine());
     }
     public void AddCandles()
     {
@@ -41,9 +43,19 @@ public void AddCarrot()
         return RealPos;
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SummoningCoroutine()
     {
-
+        yield return new WaitForSeconds(2);
+        SummonWereBunny();
     }
+
+    void SummonWereBunny()
+    {
+        GameObject Enemy = GameManager.GetComponent<GameManager>().GetEnemyReferance();
+        if (Enemy.GetComponent<EnemyAI>().EnemyType == EnemyAI.Type.WereBunny)
+        {
+            Enemy.GetComponent<EnemyAI>().Summon(RealPos);
+            GameManager.GetComponent<GameManager>().enemyIsShackled = true;
+        }
+    } 
 }
