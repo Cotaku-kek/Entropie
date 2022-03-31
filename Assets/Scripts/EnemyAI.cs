@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour
             //Check for sight range
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-            if (playerInSightRange && !isChasing)
+            if (playerInSightRange && !isChasing&&isUnshackled)
             {
                 StopCoroutine(patrolingRoutine);
                 StartCoroutine(ChasingRoutine());
@@ -130,6 +130,7 @@ public class EnemyAI : MonoBehaviour
 
     public void Summon(Vector3 pos)
     {
+        StopAllCoroutines();
         this.transform.position = pos;
         isUnshackled = false;
 

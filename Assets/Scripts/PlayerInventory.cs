@@ -12,6 +12,7 @@ public class PlayerInventory : MonoBehaviour
     public Item.ItemType[] slot;
     private int ActiveSlot = 0;
     private int SecondarySlot = 1;
+    public LayerMask layer;
 
     public GameObject GetCircle(int type)
     {
@@ -136,6 +137,15 @@ public class PlayerInventory : MonoBehaviour
                 case Item.ItemType.Shotgun:
                     Ray aim = new Ray(this.GetComponentInChildren<Camera>().transform.position, this.GetComponentInChildren<Camera>().transform.forward);
                     //if(Physics.Raycast(aim,out RaycastHit hitinfo, 5, PickupLayer))
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layer))
+                    {
+
+                        if(hit.collider.GetComponentInParent<EnemyAI>().EnemyType == EnemyAI.Type.Litch)
+                        {
+                            LitchRitualCircle.GetComponent<LitchRitualScript>().StartBanish();
+                        }
+                    }
                     break;
                 case Item.ItemType.Carrot:
                     if (WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().HasCandles()&& Vector3.Distance(transform.position, WerebunnyRitualCircle.GetComponent<BunnyCicleScript>().getPos()) < 5)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BunnyCicleScript : MonoBehaviour
 {
@@ -56,6 +57,12 @@ public void AddCarrot()
         {
             Enemy.GetComponent<EnemyAI>().Summon(RealPos);
             GameManager.GetComponent<GameManager>().enemyIsShackled = true;
+            StartCoroutine(Banish());
         }
     } 
+    IEnumerator Banish()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("WinScreen");
+    }
 }

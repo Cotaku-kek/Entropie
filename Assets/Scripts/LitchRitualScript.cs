@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LitchRitualScript : MonoBehaviour
 {
@@ -54,7 +55,15 @@ public class LitchRitualScript : MonoBehaviour
     {
         return RealPos;
     }
-
+    public void StartBanish()
+    {
+        StartCoroutine(Banish());
+    }
+    IEnumerator Banish()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("WinScreen");
+    }
     // Update is called once per frame
     void Update()
     {

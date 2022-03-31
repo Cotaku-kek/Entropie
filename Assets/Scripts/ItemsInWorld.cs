@@ -32,21 +32,21 @@ public class ItemsInWorld : MonoBehaviour
 
         SpawnerPlace = new Spawnplace[16];
         SpawnerPlace[0].SpawnPosition.Set(-37f, 2.5f, 4f);
-        SpawnerPlace[1].SpawnPosition.Set(-11.55f, 0.73f, 14.93f);
-        SpawnerPlace[2].SpawnPosition.Set(-20.53f, 0.405f, -4.11f);
-        SpawnerPlace[3].SpawnPosition.Set(-19.53f, 0.405f, -4.11f);
-        SpawnerPlace[4].SpawnPosition.Set(-19.53f, 0.405f, -3.11f);
-        SpawnerPlace[5].SpawnPosition.Set(-19.53f, 0.405f, -5.11f);
-        SpawnerPlace[6].SpawnPosition.Set(-18.53f, 0.405f, -4.11f);
-        SpawnerPlace[7].SpawnPosition.Set(-18.53f, 0.405f, -3.11f);
-        SpawnerPlace[8].SpawnPosition.Set(-18.53f, 0.405f, -5.11f);
-        SpawnerPlace[9].SpawnPosition.Set(-17.53f, 0.405f, -4.11f);
-        SpawnerPlace[10].SpawnPosition.Set(-17.53f, 0.405f, -3.11f);
-        SpawnerPlace[11].SpawnPosition.Set(-17.53f, 0.405f, -5.11f);
-        SpawnerPlace[12].SpawnPosition.Set(-16.53f, 0.405f, -4.11f);
-        SpawnerPlace[13].SpawnPosition.Set(-16.53f, 0.405f, -3.11f);
-        SpawnerPlace[14].SpawnPosition.Set(-16.53f, 0.405f, -5.11f);
-        SpawnerPlace[15].SpawnPosition.Set(-15.53f, 0.405f, -4.11f);
+        SpawnerPlace[1].SpawnPosition.Set(-11.55f, 1.73f, 14.93f);
+        SpawnerPlace[2].SpawnPosition.Set(-20.53f, 1.405f, -4.11f);
+        SpawnerPlace[3].SpawnPosition.Set(-19.53f, 1.405f, -4.11f);
+        SpawnerPlace[4].SpawnPosition.Set(-19.53f, 1.405f, -3.11f);
+        SpawnerPlace[5].SpawnPosition.Set(-19.53f, 1.405f, -5.11f);
+        SpawnerPlace[6].SpawnPosition.Set(-18.53f, 1.405f, -4.11f);
+        SpawnerPlace[7].SpawnPosition.Set(-18.53f, 1.405f, -3.11f);
+        SpawnerPlace[8].SpawnPosition.Set(-18.53f, 1.405f, -5.11f);
+        SpawnerPlace[9].SpawnPosition.Set(-17.53f, 1.405f, -4.11f);
+        SpawnerPlace[10].SpawnPosition.Set(-17.53f, 1.405f, -3.11f);
+        SpawnerPlace[11].SpawnPosition.Set(-17.53f, 1.405f, -5.11f);
+        SpawnerPlace[12].SpawnPosition.Set(-16.53f, 1.405f, -4.11f);
+        SpawnerPlace[13].SpawnPosition.Set(-16.53f, 1.405f, -3.11f);
+        SpawnerPlace[14].SpawnPosition.Set(-16.53f, 1.405f, -5.11f);
+        SpawnerPlace[15].SpawnPosition.Set(-15.53f, 1.405f, -4.11f);
         for (int i = 0; i < 16; i++)
         {
             SpawnerPlace[i].IsFree = true;
