@@ -22,11 +22,11 @@ public class BunnyBehaviour : MonoBehaviour
 
     private void DoBreathHint()
     {
-        AudioScratch.Play();
+        AudioBreath.Play();
     }
 
     private void DoScratchesHint()
     {
-        AudioBreath.Play();
+        AudioScratch.Play();
     }
 }

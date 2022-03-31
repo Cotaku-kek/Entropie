@@ -48,7 +48,7 @@ public class EnemyAI : MonoBehaviour
 
             if (playerInSightRange && !isChasing&&isUnshackled)
             {
-                StopCoroutine(patrolingRoutine);
+               // StopCoroutine(patrolingRoutine);
                 StartCoroutine(ChasingRoutine());
                 isChasing = true;
             }

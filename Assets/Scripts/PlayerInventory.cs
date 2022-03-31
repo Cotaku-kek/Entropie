@@ -143,8 +143,10 @@ public class PlayerInventory : MonoBehaviour
 
                         if(hit.collider.GetComponentInParent<EnemyAI>().EnemyType == EnemyAI.Type.Litch)
                         {
+                            Debug.Log("hit");
                             LitchRitualCircle.GetComponent<LitchRitualScript>().StartBanish();
                         }
+                        Debug.Log("miss");
                     }
                     break;
                 case Item.ItemType.Carrot:
