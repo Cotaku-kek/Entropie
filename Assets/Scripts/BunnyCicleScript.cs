@@ -8,6 +8,7 @@ public class BunnyCicleScript : MonoBehaviour
     [SerializeField] GameObject Candles;
     [SerializeField] GameObject Carrot;
     public GameObject GameManager;
+
     Vector3 RealPos;
     // Start is called before the first frame update
     public bool doesHaveCandles;
@@ -61,8 +62,12 @@ public void AddCarrot()
         }
     } 
     IEnumerator Banish()
-    {
-        yield return new WaitForSeconds(2);
+    {   
+     
+        GameObject Enemy = GameManager.GetComponent<GameManager>().GetEnemyReferance();
+        Enemy.GetComponent<EnemyAI>().PlaySummonAnimation();
+
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene("WinScreen");
     }
 }

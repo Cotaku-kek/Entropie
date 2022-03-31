@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     public enum Type { Litch, WereBunny};
     public Type EnemyType;
+    public Animator animator;
 
     private Vector3 startingPosition;
     public Vector3 walkPoint;    
@@ -134,5 +135,10 @@ public class EnemyAI : MonoBehaviour
         this.transform.position = pos;
         isUnshackled = false;
 
+    }
+
+    public void PlaySummonAnimation()
+    {
+        animator.Play("Bannanimation");
     }
 }

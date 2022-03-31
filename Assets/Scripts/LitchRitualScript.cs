@@ -61,12 +61,11 @@ public class LitchRitualScript : MonoBehaviour
     }
     IEnumerator Banish()
     {
-        yield return new WaitForSeconds(2);
+        GameObject Enemy = GameManager.GetComponent<GameManager>().GetEnemyReferance();
+        Enemy.GetComponent<EnemyAI>().PlaySummonAnimation();
+
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene("WinScreen");
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
