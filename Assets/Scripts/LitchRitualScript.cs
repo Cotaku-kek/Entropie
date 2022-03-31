@@ -57,13 +57,12 @@ public class LitchRitualScript : MonoBehaviour
     }
     public void StartBanish()
     {
+        GameObject Enemy = GameManager.GetComponent<GameManager>().GetEnemyReferance();
+        Enemy.GetComponent<EnemyAI>().PlaySummonAnimation();
         StartCoroutine(Banish());
     }
     IEnumerator Banish()
     {
-        GameObject Enemy = GameManager.GetComponent<GameManager>().GetEnemyReferance();
-        Enemy.GetComponent<EnemyAI>().PlaySummonAnimation();
-
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("WinScreen");
     }

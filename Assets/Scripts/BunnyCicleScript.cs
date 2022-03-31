@@ -58,15 +58,12 @@ public void AddCarrot()
         {
             Enemy.GetComponent<EnemyAI>().Summon(RealPos);
             GameManager.GetComponent<GameManager>().enemyIsShackled = true;
+            Enemy.GetComponent<EnemyAI>().PlaySummonAnimation();
             StartCoroutine(Banish());
         }
     } 
     IEnumerator Banish()
     {   
-     
-        GameObject Enemy = GameManager.GetComponent<GameManager>().GetEnemyReferance();
-        Enemy.GetComponent<EnemyAI>().PlaySummonAnimation();
-
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("WinScreen");
     }

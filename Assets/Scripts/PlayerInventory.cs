@@ -140,7 +140,7 @@ public class PlayerInventory : MonoBehaviour
                     RaycastHit hit;
                     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layer))
                     {
-
+                        Debug.Log(hit.collider.GetComponentInParent<EnemyAI>().EnemyType);
                         if(hit.collider.GetComponentInParent<EnemyAI>().EnemyType == EnemyAI.Type.Litch)
                         {
                             Debug.Log("hit");
